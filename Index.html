@@ -1,179 +1,100 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <title>Habibi Express – Alt på ett sted</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 1em;
-            max-width: 700px;
-            margin: auto;
-        }
-        h1 {
-            text-align: center;
-            color: #222;
-        }
-        nav {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        nav button {
-            padding: 10px 14px;
-            margin: 5px;
-            border: none;
-            background-color: #0a9396;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        nav button:hover {
-            background-color: #00707c;
-        }
-        section {
-            display: none;
-        }
-        section.active {
-            display: block;
-        }
-        form input, form textarea, form select, form button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 6px;
-            margin-bottom: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        form button {
-            background-color: #111;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        form button:hover {
-            background-color: #444;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habibi Express</title>
+  <style>
+    :root { --bg:#000; --fg:#fff; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#111}
+    header{background:var(--bg);color:var(--fg);padding:16px 56px 20px;text-align:center;position:sticky;top:0;z-index:10}
+    header h1{margin:0;font-size:28px}
+    header p{margin:6px 0 0;opacity:.9}
+    .language-toggle{position:absolute;top:10px;right:10px;display:flex;gap:8px}
+    .language-toggle button{background:transparent;border:0;font-size:18px;cursor:pointer}
+    main{padding:18px;max-width:720px;margin:auto}
+    section{background:#f7f7f7;padding:16px;border-radius:12px;margin:14px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+    h2{margin:6px 0 12px}
+    form{display:flex;flex-direction:column;gap:10px}
+    label{font-size:14px}
+    input,select,textarea,button{padding:12px;border:1px solid #ddd;border-radius:10px;font-size:16px;width:100%}
+    input:focus,select:focus,textarea:focus{outline:2px solid #222;border-color:#222}
+    button[type=submit]{background:#000;color:#fff;border:0;font-weight:600}
+    @media (max-width:640px){header h1{font-size:22px}}
+  </style>
 </head>
 <body>
+  <header>
     <h1>Habibi Express</h1>
-<p style='text-align:center;'>Flytting uten stress</p>
-    <nav>
-        <button onclick="showSection('bestill')">📦 Bestill flytting</button>
-        <button onclick="showSection('tips')">💸 Tips oss om noen som skal flytte</button>
-        <button onclick="showSection('mini')">💼 Mini-oppdrag</button>
-    </nav>
+    <p>Flytting uten stress</p>
+    <div class="language-toggle">
+      <button onclick="window.location.href='Index.html'">🇳🇴</button>
+      <button onclick="window.location.href='index-en.html'">🇬🇧</button>
+    </div>
+  </header>
 
-    <section id="bestill" class="active">
-        <h2>Bestill flytting</h2>
-        <form id="formBestill">
-            <input type="text" name="navn" placeholder="Ditt navn" required>
-            <input type="text" name="telefon" placeholder="Telefonnummer" required>
-            <input type="text" name="fra_adresse" placeholder="Fra adresse" required>
-            <input type="text" name="til_adresse" placeholder="Til adresse" required>
-            <input type="text" name="dato" placeholder="Ønsket dato">
-            <textarea name="kommentar" placeholder="Kommentar (valgfritt)"></textarea>
-        </form>
-        <p>Send via:</p>
-        <button onclick="send('formBestill', 'Flytteforespørsel')">📲 WhatsApp</button>
-        <button onclick="sendSMS('formBestill')">📩 SMS</button>
-        <button onclick="sendEmail('formBestill', 'Flytteforespørsel')">✉️ E-post</button>
-        <hr>
-        <p><strong>Eller:</strong></p>
-        <button onclick="showSection('hjelp')">🤝 Hjelp noen å flytte – få 1000 kr</button>
+  <main>
+    <section id="main-form">
+      <h2>Bestill flytting</h2>
+      <form action="https://formspree.io/f/mkgzllaj" method="POST" enctype="multipart/form-data">
+        <label for="pickup">Fra adresse</label>
+        <input type="text" id="pickup" name="fra_adresse" required />
+
+        <label for="delivery">Til adresse</label>
+        <input type="text" id="delivery" name="til_adresse" required />
+
+        <label for="date">Ønsket dato</label>
+        <input type="date" id="date" name="dato" required />
+
+        <label for="phone">Telefonnummer</label>
+        <input type="tel" id="phone" name="telefon" required />
+
+        <label for="email">E-post</label>
+        <input type="email" id="email" name="epost" required />
+
+        <label for="message">Kommentar</label>
+        <textarea id="message" name="kommentar" rows="4"></textarea>
+
+        <label for="images">Last opp bilder av det som skal flyttes</label>
+        <input type="file" id="images" name="bilder" accept="image/*" multiple />
+
+        <button type="submit">Send</button>
+      </form>
     </section>
 
-        <section id="tips">
-        <h2>Tips oss om noen som skal flytte – få 1000 kr</h2>
-        <form id="formTips">
-        <input type="text" name="kunde_telefon" placeholder="Telefonnummer til den som skal flytte" required>
-        <select name="betaling" required>
-            <option value="">Velg hvordan vi skal betale deg</option>
-            <option value="Vipps">Vipps</option>
-            <option value="Revolut">Revolut</option>
-            <option value="Bank">Bankoverføring</option>
+    <section id="referral-form">
+      <h2>Tips noen som skal flytte – få 1000 kr</h2>
+      <form action="https://formspree.io/f/mkgzllaj" method="POST">
+        <label for="referral-phone">Telefonnummer til kunden</label>
+        <input type="tel" id="referral-phone" name="kunde_telefon" required />
+
+        <label for="payment-method">Betalingsmåte</label>
+        <select id="payment-method" name="betaling" required>
+          <option value="Vipps">Vipps</option>
+          <option value="Revolut">Revolut</option>
+          <option value="Bank">Bankoverføring</option>
         </select>
-        <input type="text" name="betalingsinfo" placeholder="Skriv inn nummer/kontonr/Vipps (dit vi skal betale)" required>
-    </form>
-        <p>Send via:</p>
-        <button onclick="send('formTips', 'Tips oss om noen som skal flytte')">📲 WhatsApp</button>
-        <button onclick="sendSMS('formTips')">📩 SMS</button>
-        <button onclick="sendEmail('formTips', 'Tips oss om noen som skal flytte')">✉️ E-post</button>
+
+        <label for="payment-info">Betalingsinfo (nummer/kontonr.)</label>
+        <input type="text" id="payment-info" name="betalingsinfo" required />
+
+        <button type="submit">Send</button>
+      </form>
     </section>
 
+    <section id="mini-job-form">
+      <h2>Bestill mini-oppdrag</h2>
+      <form action="https://formspree.io/f/mkgzllaj" method="POST">
+        <label for="job-description">Beskriv oppdraget</label>
+        <textarea id="job-description" name="oppdrag_beskrivelse" rows="3" required></textarea>
 
-    <section id="mini">
-        <h2>Bestill mini-oppdrag</h2>
-        <form id="formMini">
-            <input type="text" name="tipser_navn" placeholder="Ditt navn" required>
-            <input type="text" name="tipser_kontakt" placeholder="Telefonnummer (telefon / Insta / e-post)" required>
-            <textarea name="oppdrag_beskrivelse" placeholder="Hva er oppdraget?" required></textarea>
-            <textarea name="adresse" placeholder="Adresse / sted for oppdraget" required></textarea>
-            <input type="text" name="dato_tid" placeholder="Ønsket dato og tid">
-                        <textarea name="kommentar" placeholder="Kommentar (valgfritt)"></textarea>
-        </form>
-        <p>Send via:</p>
-        <button onclick="send('formMini', 'Mini-oppdrag')">📲 WhatsApp</button>
-        <button onclick="sendSMS('formMini')">📩 SMS</button>
-        <button onclick="sendEmail('formMini', 'Mini-oppdrag')">✉️ E-post</button>
+        <label for="job-phone">Telefonnummer</label>
+        <input type="tel" id="job-phone" name="telefon" required />
+
+        <button type="submit">Send</button>
+      </form>
     </section>
-
-    <section id="hjelp">
-        <h2>Hjelp noen å flytte – få 1000 kr</h2>
-        <form id="formHjelp">
-            <input type="text" name="tipser_navn" placeholder="Ditt navn" required>
-            <input type="text" name="tipser_kontakt" placeholder="Telefonnummer (telefon / Insta / e-post)" required>
-            <select name="betaling" required>
-                <option value="">Velg betalingsmåte</option>
-                <option value="Vipps">Vipps</option>
-                <option value="Revolut">Revolut</option>
-                <option value="Bank">Bankoverføring</option>
-            </select>
-            <input type="text" name="kunde_navn" placeholder="Navn på personen du hjelper" required>
-            <input type="text" name="kunde_telefon" placeholder="Telefonnummer til personen du hjelper" required>
-            <input type="text" name="fra_adresse" placeholder="Fra adresse">
-            <input type="text" name="til_adresse" placeholder="Til adresse">
-            <input type="text" name="dato" placeholder="Ønsket dato">
-            <textarea name="kommentar" placeholder="Kommentar (valgfritt)"></textarea>
-        </form>
-        <p>Send via:</p>
-        <button onclick="send('formHjelp', 'Hjelp noen å flytte')">📲 WhatsApp</button>
-        <button onclick="sendSMS('formHjelp')">📩 SMS</button>
-        <button onclick="sendEmail('formHjelp', 'Hjelp noen å flytte')">✉️ E-post</button>
-    </section>
-
-    <script>
-        function showSection(id) {
-            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function getFormData(formId) {
-            const form = document.getElementById(formId);
-            const data = new FormData(form);
-            return [...data.entries()].map(([k, v]) => k + ': ' + v).join('\n');
-        }
-
-        function send(formId, title) {
-            const text = encodeURIComponent(getFormData(formId));
-            window.open('https://wa.me/4792372420?text=' + text, '_blank');
-        }
-
-        function sendSMS(formId) {
-            const text = encodeURIComponent(getFormData(formId));
-            window.open('sms:+4747878769?body=' + text, '_self');
-        }
-
-        function sendEmail(formId, title) {
-            const text = encodeURIComponent(getFormData(formId));
-            window.open('mailto:habibiexpressbergen@gmail.com?subject=' + encodeURIComponent(title) + '&body=' + text, '_blank');
-        }
-    </script>
+  </main>
 </body>
 </html>

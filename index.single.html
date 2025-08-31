@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habibi Express – Flytting uten stress</title>
+  <meta name="description" content="Habibi Express: Flytting uten stress i Bergen og hele Norge. Rask respons, enkle skjema og fastpris-forespørsel med bilder." />
+  <meta property="og:title" content="Habibi Express – Flytting uten stress" />
+  <meta property="og:description" content="Bestill flytting, tips oss om noen som skal flytte, eller be om fastpris med bilder." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --card: #121214;
+      --text: #ffffff;
+      --muted: #b7b7c2;
+      --accent: #ffd166;
+      --accent-2: #00d1b2;
+      --error: #ff6b6b;
+      --success: #2ecc71;
+      --radius: 18px;
+      --maxw: 980px;
+    }
+    * { box-sizing: border-box; }
+    html:focus-within { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html:focus-within { scroll-behavior: auto; }
+      * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height: 1.5;
+      font-size: clamp(15px, 1.4vw, 17px);
+    }
+    header {
+      padding: 30px 18px 16px;
+      text-align: center;
+    }
+    .brand {
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 800;
+      letter-spacing: 0.4px;
+    }
+    .sub {
+      color: var(--muted);
+      margin-top: 6px;
+      font-size: clamp(13px, 2.2vw, 16px);
+    }
+    .wrap {
+      padding: 8px 14px 28px;
+      max-width: var(--maxw);
+      margin: 0 auto;
+    }
+    .hero {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin: 0 0 18px;
+    }
+    .hero-ctas { display: grid; gap: 10px; grid-template-columns: 1fr; }
+    @media(min-width: 640px){ .hero-ctas { grid-template-columns: 1fr 1fr; } }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin: 12px 0 18px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+    }
+    h2 {
+      font-size: clamp(18px, 2.8vw, 22px);
+      margin: 0 0 12px;
+    }
+    label {
+      display: block;
+      font-size: 0.92em;
+      margin: 10px 0 6px;
+      color: var(--muted);
+    }
+    input, select, textarea, button {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #0f0f11;
+      color: var(--text);
+      padding: 12px 12px;
+      font-size: 1em;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: #fff; box-shadow: 0 0 0 2px rgba(255,255,255,0.15); }
+    textarea { min-height: 110px; resize: vertical; }
+    .row { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    @media(min-width: 640px){ .row-2 { grid-template-columns: 1fr 1fr; } }
+    .hint { font-size: 0.86em; color: var(--muted); margin-top: 6px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      text-align: center;
+      background: linear-gradient(180deg, var(--accent), #ffb703);
+      color: #1d1d1f; border: none; font-weight: 800; letter-spacing: 0.2px;
+      padding: 14px 14px; cursor: pointer; transition: transform 0.06s ease;
+      border-radius: 12px;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text);
+    }
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .ok { color: var(--success); }
+    .bad { color: var(--error); }
+    .note { font-size: 12px; color: var(--muted); margin: 12px 0 0; }
+    .footer {
+      text-align: center; color: var(--muted); font-size: 12px; padding: 24px 0 80px;
+    }
+    .brandline { margin: 8px 0 14px; color: var(--muted); font-size: 12px; }
+    .phone-display { font-weight: 700; letter-spacing: 0.4px; }
+    /* Sticky mobile action bar */
+    .actionbar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+      background: rgba(18,18,20,0.96);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      padding: 10px 12px;
+    }
+    .actiongrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; max-width: var(--maxw); margin: 0 auto; }
+    .actiongrid a { text-decoration: none; }
+    .actionbtn { padding: 12px; border-radius: 12px; text-align: center; font-weight: 700; display: block; }
+    .call { background: var(--accent); color: #111; }
+    .wa { background: var(--accent-2); color: #111; }
+    .vipps { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text); }
+    /* Desktop tweaks */
+    @media(min-width: 1024px){
+      .wrap { padding: 10px 20px 28px; }
+      .card, .hero { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Habibi Express</div>
+    <div class="sub">Flytting uten stress</div>
+    <div class="brandline">Kontakt: <a class="phone-display" href="tel:+4747878769">+47 47 87 87 69</a> &nbsp;&middot;&nbsp; Instagram: @Habibi__express</div>
+  </header>
+
+  <div class="wrap">
+    <section class="hero" aria-label="Hurtigvalg">
+      <div class="hero-ctas">
+        <a class="btn" href="#mini-form">Bestill flytting</a>
+        <a class="btn btn-outline" href="#tips-form">Hjelp noen å flytte – få 1000 kr</a>
+      </div>
+      <div class="hint" style="margin-top:10px;">Svar på SMS i åpningstid. Hele Bergen – hele Norge. “تعال إلى دبي”</div>
+    </section>
+
+    <section class="card" aria-label="Tips oss">
+      <span class="pill">Raskt og enkelt</span>
+      <h2>Tips oss om noen som skal flytte</h2>
+      <form id="tips-form" action="https://formspree.io/f/mkgzllaj" method="POST" novalidate>
+        <input type="hidden" name="_redirect" value="success.html" />
+        <label for="customer-phone">Telefonnummer til den som skal flytte</label>
+        <input id="customer-phone" name="customer_phone" type="tel" inputmode="tel" autocomplete="tel-national"
+               placeholder="+47 4X XX XX XX"
+               pattern="^\s*(\+?47)?[\s\-]*\d(?:[\s\-]*\d){7}\s*$"
+               required aria-required="true" />
+
+        <label for="payment-method">Utbetalingsmåte</label>
+        <select id="payment-method" name="payment_method" required aria-required="true">
+          <option value="">Velg...</option>
+          <option>Vipps</option>
+          <option>Revolut</option>
+          <option>Bank</option>
+        </select>
+
+        <label for="payment-info">Utbetalingsinfo</label>
+        <input id="payment-info" name="payment_info" type="text" placeholder="F.eks. Vipps-nummer 9 siffer" required aria-required="true" />
+
+        <input type="hidden" name="_subject" value="Tips: Noen skal flytte" />
+        <input type="hidden" name="form_name" value="tips_om_noen_som_skal_flytte" />
+
+        <div class="hint">Vi kontakter kunden. Du får 1000 kr når oppdraget blir booket.</div>
+        <div style="height:10px"></div>
+        <button class="btn" type="submit" aria-label="Send tips">Send tips</button>
+        <div id="tips-msg" class="note" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="card" aria-label="Bestill mini-oppdrag">
+      <span class="pill">Småoppdrag</span>
+      <h2>Bestill mini-oppdrag</h2>
+      <form id="mini-form" action="https://formspree.io/f/mkgzllaj" method="POST" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="_redirect" value="success.html" />
+        <div class="row row-2">
+          <div>
+            <label for="name">Navn (æøå tillatt)</label>
+            <input id="name" name="name" type="text" placeholder="Ditt navn"
+                   pattern="^[A-Za-zÀ-ÿÆØÅæøå .'\-]{2,}$" required aria-required="true" autocomplete="name" />
+          </div>
+          <div>
+            <label for="phone">Telefonnummer</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national"
+                   placeholder="+47 4X XX XX XX"
+                   pattern="^\s*(\+?47)?[\s\-]*\d(?:[\s\-]*\d){7}\s*$"
+                   required aria-required="true" />
+          </div>
+        </div>
+
+        <label for="task">Hva skal gjøres?</label>
+        <textarea id="task" name="task" placeholder="Beskriv kort oppdraget (kjøring, bæring, henting osv.)" required aria-required="true"></textarea>
+
+        <label for="images">Bilder (valgfritt)</label>
+        <input id="images" name="images" type="file" accept="image/*" multiple />
+
+        <input type="hidden" name="_subject" value="Bestill mini-oppdrag" />
+        <input type="hidden" name="form_name" value="bestill_mini_oppdrag" />
+
+        <div class="hint">Svar på SMS innen få minutter i åpningstid.</div>
+        <div style="height:10px"></div>
+        <button class="btn" type="submit" aria-label="Send forespørsel">Send forespørsel</button>
+        <div id="mini-msg" class="note" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="card" aria-label="Fastpris">
+      <span class="pill">Fastpris (beta)</span>
+      <h2>Få fastpris – last opp bilder</h2>
+      <form id="fastpris-form" action="https://formspree.io/f/mkgzllaj" method="POST" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="_redirect" value="success.html" />
+        <label for="from-address">Fra-adresse</label>
+        <input id="from-address" name="from_address" type="text" placeholder="Gate, nr, postnr og sted" required aria-required="true" autocomplete="address-line1" />
+
+        <label for="to-address">Til-adresse</label>
+        <input id="to-address" name="to_address" type="text" placeholder="Gate, nr, postnr og sted" required aria-required="true" autocomplete="address-line1" />
+
+        <label for="fast-phone">Telefonnummer</label>
+        <input id="fast-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national"
+               placeholder="+47 4X XX XX XX"
+               pattern="^\s*(\+?47)?[\s\-]*\d(?:[\s\-]*\d){7}\s*$"
+               required aria-required="true" />
+
+        <label for="fast-images">Bilder av det som skal flyttes</label>
+        <input id="fast-images" name="images" type="file" accept="image/*" multiple />
+
+        <input type="hidden" name="_subject" value="Fastpris-forespørsel" />
+        <input type="hidden" name="form_name" value="fastpris" />
+
+        <div class="hint">Vi beregner pris basert på avstand + fast tid for lasting/losing.</div>
+        <div style="height:10px"></div>
+        <button class="btn" type="submit" aria-label="Be om fastpris">Be om fastpris</button>
+        <div id="fast-msg" class="note" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="card" aria-label="Viktig info">
+      <span class="pill">Info</span>
+      <h2>Viktig</h2>
+      <ul class="hint">
+        <li>Skjema aksepterer æ, ø, å i navn.</li>
+        <li>Telefonfelt aksepterer +47, mellomrom og bindestrek (nøyaktig 8 sifre).</li>
+        <li>Fjernede felt: Etasje, Leilighet, Budsjett.</li>
+        <li>Sett inn din Formspree-lenke i <code>action</code> for hvert skjema (bytt ut <i>your-form-id</i>).</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="footer">
+    © 2025 Habibi Express &middot; “تعال إلى دبي” &middot; Bergen / Hele Norge
+  </div>
+
+  <!-- Sticky mobile action bar -->
+  <nav class="actionbar" aria-label="Hurtig handlinger">
+    <div class="actiongrid">
+      <a class="actionbtn call" href="tel:+4747878769" aria-label="Ring Habibi Express">Ring</a>
+      <a class="actionbtn wa" href="https://wa.me/4747878769?text=Hei%20Habibi%20Express%21%20Jeg%20vil%20bestille%20flytting." aria-label="Åpne WhatsApp-chat">WhatsApp</a>
+      <a class="actionbtn vipps" href="#mini-form" aria-label="Åpne bestillingsskjema">Bestill</a>
+    </div>
+  </nav>
+
+  <script>
+    // Client-side submission feedback
+    function handleAjax(formId, msgId){
+      const form = document.getElementById(formId);
+      const msg  = document.getElementById(msgId);
+      if(!form) return;
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const data = new FormData(form);
+        const action = form.getAttribute('action');
+        msg.textContent = "Sender…";
+        fetch(action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' }})
+          .then(r => r.ok ? r.json() : Promise.reject(r))
+          .then(() => { msg.textContent = "Takk! Vi tar kontakt snart."; msg.classList.add('ok'); form.reset(); })
+          .catch(async (err) => {
+            let detail = "";
+            try { detail = await err.text(); } catch(_){}
+            msg.textContent = "Noe gikk galt. Sjekk Formspree action-lenken. " + (detail || "");
+            msg.classList.add('bad');
+          });
+      });
+    }
+    handleAjax('tips-form', 'tips-msg');
+    handleAjax('mini-form', 'mini-msg');
+    handleAjax('fastpris-form', 'fast-msg');
+  </script>
+
+<script>
+// Tolerant phone normalizer: never blocks submission.
+// It converts any input to +47######## (drops spaces/dashes/etc).
+(function(){
+  const forms = ['tips-form','mini-form','fastpris-form'];
+  forms.forEach(fid=>{
+    const f = document.getElementById(fid);
+    if(!f) return;
+    f.addEventListener('submit', function(){
+      ['customer-phone','phone','fast-phone'].forEach(id=>{
+        const el = document.getElementById(id);
+        if(el && el.form === f){
+          let raw = (el.value || '').replace(/[\s\-\u00A0\u202F\u2007\u2060]/g,'');
+          raw = raw.replace(/^00/,'+');           // 00 -> +
+          raw = raw.replace(/^(\+?47)?/, '');    // drop +47 if present
+          raw = raw.replace(/\D/g,'');           // keep digits
+          el.value = '+47' + raw;                 // reattach +47
+        }
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

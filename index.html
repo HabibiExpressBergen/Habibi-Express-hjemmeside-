@@ -17,142 +17,49 @@
   <link rel="apple-touch-icon" href="favicon.png">
   <style>
     :root {
-      --bg: #0b0b0c;
-      --card: #121214;
-      --text: #ffffff;
-      --muted: #b7b7c2;
-      --accent: #ffd166;
-      --accent-2: #00d1b2;
-      --error: #ff6b6b;
-      --success: #2ecc71;
-      --radius: 18px;
-      --maxw: 980px;
+      --bg: #0b0b0c; --card: #121214; --text: #ffffff; --muted: #b7b7c2;
+      --accent: #ffd166; --accent-2: #00d1b2; --error: #ff6b6b; --success: #2ecc71;
+      --radius: 18px; --maxw: 980px;
     }
     * { box-sizing: border-box; }
     html:focus-within { scroll-behavior: smooth; }
     @media (prefers-reduced-motion: reduce) {
       html:focus-within { scroll-behavior: auto; }
-      * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+      * { animation-duration: .001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
     }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      line-height: 1.5;
-      font-size: clamp(15px, 1.4vw, 17px);
-    }
-    header {
-      padding: 30px 18px 16px;
-      text-align: center;
-    }
-    .brand {
-      font-size: clamp(26px, 5vw, 36px);
-      font-weight: 800;
-      letter-spacing: 0.4px;
-    }
-    .sub {
-      color: var(--muted);
-      margin-top: 6px;
-      font-size: clamp(13px, 2.2vw, 16px);
-    }
-    .wrap {
-      padding: 8px 14px 28px;
-      max-width: var(--maxw);
-      margin: 0 auto;
-    }
-    .hero {
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius);
-      padding: 16px;
-      margin: 0 0 18px;
-    }
-    .hero-ctas { display: grid; gap: 10px; grid-template-columns: 1fr; }
-    @media(min-width: 640px){ .hero-ctas { grid-template-columns: 1fr 1fr; } }
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius);
-      padding: 16px;
-      margin: 12px 0 18px;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
-    }
-    h2 {
-      font-size: clamp(18px, 2.8vw, 22px);
-      margin: 0 0 12px;
-    }
-    label {
-      display: block;
-      font-size: 0.92em;
-      margin: 10px 0 6px;
-      color: var(--muted);
-    }
-    input, select, textarea, button {
-      width: 100%;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: #0f0f11;
-      color: var(--text);
-      padding: 12px 12px;
-      font-size: 1em;
-      outline: none;
-    }
-    input:focus, select:focus, textarea:focus { border-color: #fff; box-shadow: 0 0 0 2px rgba(255,255,255,0.15); }
-    textarea { min-height: 110px; resize: vertical; }
-    .row { display: grid; grid-template-columns: 1fr; gap: 10px; }
-    @media(min-width: 640px){ .row-2 { grid-template-columns: 1fr 1fr; } }
-    .hint { font-size: 0.86em; color: var(--muted); margin-top: 6px; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      text-align: center;
-      background: linear-gradient(180deg, var(--accent), #ffb703);
-      color: #1d1d1f; border: none; font-weight: 800; letter-spacing: 0.2px;
-      padding: 14px 14px; cursor: pointer; transition: transform 0.06s ease;
-      border-radius: 12px;
-    }
+    body { margin:0; background:var(--bg); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; line-height:1.5; font-size: clamp(15px, 1.4vw, 17px); }
+    header { padding: 30px 18px 16px; text-align:center; }
+    .brand { font-size: clamp(26px,5vw,36px); font-weight:800; letter-spacing:.4px; }
+    .sub { color:var(--muted); margin-top:6px; font-size: clamp(13px,2.2vw,16px); }
+    .wrap { padding:8px 14px 28px; max-width:var(--maxw); margin:0 auto; }
+    .hero { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:16px; margin:0 0 18px; }
+    .hero-ctas { display:grid; gap:10px; grid-template-columns:1fr; }
+    @media(min-width:640px){ .hero-ctas { grid-template-columns:1fr 1fr; } }
+    .card { background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:16px; margin:12px 0 18px; box-shadow:0 10px 22px rgba(0,0,0,.25); }
+    h2 { font-size: clamp(18px, 2.8vw, 22px); margin:0 0 12px; }
+    label { display:block; font-size:.92em; margin:10px 0 6px; color:var(--muted); }
+    input, select, textarea, button { width:100%; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0f0f11; color:var(--text); padding:12px; font-size:1em; outline:none; }
+    input:focus, select:focus, textarea:focus { border-color:#fff; box-shadow:0 0 0 2px rgba(255,255,255,.15); }
+    textarea { min-height:110px; resize:vertical; }
+    .row { display:grid; grid-template-columns:1fr; gap:10px; }
+    @media(min-width:640px){ .row-2 { grid-template-columns:1fr 1fr; } }
+    .hint { font-size:.86em; color:var(--muted); margin-top:6px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; text-align:center; background:linear-gradient(180deg, var(--accent), #ffb703); color:#1d1d1f; border:none; font-weight:800; letter-spacing:.2px; padding:14px; cursor:pointer; transition:transform .06s ease; border-radius:12px; }
     .btn:active { transform: translateY(1px); }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: var(--text);
-    }
-    .pill {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-    .ok { color: var(--success); }
-    .bad { color: var(--error); }
-    .note { font-size: 12px; color: var(--muted); margin: 12px 0 0; }
-    .footer {
-      text-align: center; color: var(--muted); font-size: 12px; padding: 24px 0 80px;
-    }
-    .brandline { margin: 8px 0 14px; color: var(--muted); font-size: 12px; }
-    .phone-display { font-weight: 700; letter-spacing: 0.4px; }
-    /* Sticky mobile action bar */
-    .actionbar {
-      position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
-      background: rgba(18,18,20,0.96);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(6px);
-      padding: 10px 12px;
-    }
-    .actiongrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; max-width: var(--maxw); margin: 0 auto; }
-    .actiongrid a { text-decoration: none; }
-    .actionbtn { padding: 12px; border-radius: 12px; text-align: center; font-weight: 700; display: block; }
-    .call { background: var(--accent); color: #111; }
-    .wa { background: var(--accent-2); color: #111; }
-    .vipps { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text); }
-    /* Desktop tweaks */
-    @media(min-width: 1024px){
-      .wrap { padding: 10px 20px 28px; }
-      .card, .hero { padding: 22px; }
-    }
+    .btn-outline { background:transparent; border:1px solid rgba(255,255,255,.2); color:var(--text); }
+    .pill { display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); color:var(--muted); font-size:12px; margin-bottom:10px; }
+    .ok { color:var(--success); } .bad { color:var(--error); } .note { font-size:12px; color:var(--muted); margin:12px 0 0; }
+    .footer { text-align:center; color:var(--muted); font-size:12px; padding:24px 0 80px; }
+    .brandline { margin:8px 0 14px; color:var(--muted); font-size:12px; }
+    .phone-display { font-weight:700; letter-spacing:.4px; }
+    .actionbar { position:fixed; left:0; right:0; bottom:0; z-index:30; background:rgba(18,18,20,.96); border-top:1px solid rgba(255,255,255,.08); backdrop-filter: blur(6px); padding:10px 12px; }
+    .actiongrid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; max-width:var(--maxw); margin:0 auto; }
+    .actiongrid a { text-decoration:none; }
+    .actionbtn { padding:12px; border-radius:12px; text-align:center; font-weight:700; display:block; }
+    .call { background: var(--accent); color:#111; }
+    .wa { background: var(--accent-2); color:#111; }
+    .vipps { background: transparent; border:1px solid rgba(255,255,255,.2); color:var(--text); }
+    @media(min-width:1024px){ .wrap { padding:10px 20px 28px; } .card, .hero { padding:22px; } }
   </style>
 </head>
 <body>
@@ -177,10 +84,7 @@
       <form id="tips-form" action="https://formspree.io/f/mkgzllaj" method="POST" novalidate>
         <input type="hidden" name="_redirect" value="success.html" />
         <label for="customer-phone">Telefonnummer til den som skal flytte</label>
-        <input id="customer-phone" name="customer_phone" type="tel" inputmode="tel" autocomplete="tel-national"
-               placeholder="+47 4X XX XX XX"
-               pattern="^\s*(\+?47)?[\s\-]*\d(?:[\s\-]*\d){7}\s*$"
-               required aria-required="true" />
+        <input id="customer-phone" name="customer_phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="+47 4X XX XX XX" required aria-required="true" />
 
         <label for="payment-method">Utbetalingsmåte</label>
         <select id="payment-method" name="payment_method" required aria-required="true">
@@ -211,15 +115,11 @@
         <div class="row row-2">
           <div>
             <label for="name">Navn (æøå tillatt)</label>
-            <input id="name" name="name" type="text" placeholder="Ditt navn"
-                   pattern="^[A-Za-zÀ-ÿÆØÅæøå .'\-]{2,}$" required aria-required="true" autocomplete="name" />
+            <input id="name" name="name" type="text" placeholder="Ditt navn" pattern="^[A-Za-zÀ-ÿÆØÅæøå .'\-]{2,}$" required aria-required="true" autocomplete="name" />
           </div>
           <div>
             <label for="phone">Telefonnummer</label>
-            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national"
-                   placeholder="+47 4X XX XX XX"
-                   pattern="^\s*(\+?47)?[\s\-]*\d(?:[\s\-]*\d){7}\s*$"
-                   required aria-required="true" />
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="+47 4X XX XX XX" required aria-required="true" />
           </div>
         </div>
 
@@ -251,10 +151,7 @@
         <input id="to-address" name="to_address" type="text" placeholder="Gate, nr, postnr og sted" required aria-required="true" autocomplete="address-line1" />
 
         <label for="fast-phone">Telefonnummer</label>
-        <input id="fast-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national"
-               placeholder="+47 4X XX XX XX"
-               pattern="^\s*(\+?47)?[\s\-]*\d(?:[\s\-]*\d){7}\s*$"
-               required aria-required="true" />
+        <input id="fast-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="+47 4X XX XX XX" required aria-required="true" />
 
         <label for="fast-images">Bilder av det som skal flyttes</label>
         <input id="fast-images" name="images" type="file" accept="image/*" multiple />
@@ -274,18 +171,16 @@
       <h2>Viktig</h2>
       <ul class="hint">
         <li>Skjema aksepterer æ, ø, å i navn.</li>
-        <li>Telefonfelt aksepterer +47, mellomrom og bindestrek (nøyaktig 8 sifre).</li>
+        <li>Telefonfelt godtar alle formater; vi normaliserer til +47######## automatisk.</li>
         <li>Fjernede felt: Etasje, Leilighet, Budsjett.</li>
-        <li>Sett inn din Formspree-lenke i <code>action</code> for hvert skjema (bytt ut <i>your-form-id</i>).</li>
       </ul>
     </section>
   </div>
 
   <div class="footer">
-    © 2025 Habibi Express &middot; “تعال إلى دبي” &middot; Bergen / Hele Norge
+    © 2025 Habibi Express · “تعال إلى دبي” · Bergen / Hele Norge
   </div>
 
-  <!-- Sticky mobile action bar -->
   <nav class="actionbar" aria-label="Hurtig handlinger">
     <div class="actiongrid">
       <a class="actionbtn call" href="tel:+4747878769" aria-label="Ring Habibi Express">Ring</a>
@@ -295,7 +190,28 @@
   </nav>
 
   <script>
-    // Client-side submission feedback
+  // Tolerant phone normalizer: never blocks submission.
+  (function(){
+    const forms = ['tips-form','mini-form','fastpris-form'];
+    forms.forEach(fid=>{
+      const f = document.getElementById(fid);
+      if(!f) return;
+      f.addEventListener('submit', function(){
+        ['customer-phone','phone','fast-phone'].forEach(id=>{
+          const el = document.getElementById(id);
+          if(el && el.form === f){
+            let raw = (el.value || '').replace(/[\s\-\u00A0\u202F\u2007\u2060]/g,'');
+            raw = raw.replace(/^00/,'+').replace(/^(\+?47)?/,'').replace(/\D/g,'');
+            el.value = '+47' + raw;
+          }
+        });
+      });
+    });
+  })();
+  </script>
+
+  <script>
+    // AJAX feedback (non-blocking)
     function handleAjax(formId, msgId){
       const form = document.getElementById(formId);
       const msg  = document.getElementById(msgId);
@@ -320,30 +236,5 @@
     handleAjax('mini-form', 'mini-msg');
     handleAjax('fastpris-form', 'fast-msg');
   </script>
-
-<script>
-// Tolerant phone normalizer: never blocks submission.
-// It converts any input to +47######## (drops spaces/dashes/etc).
-(function(){
-  const forms = ['tips-form','mini-form','fastpris-form'];
-  forms.forEach(fid=>{
-    const f = document.getElementById(fid);
-    if(!f) return;
-    f.addEventListener('submit', function(){
-      ['customer-phone','phone','fast-phone'].forEach(id=>{
-        const el = document.getElementById(id);
-        if(el && el.form === f){
-          let raw = (el.value || '').replace(/[\s\-\u00A0\u202F\u2007\u2060]/g,'');
-          raw = raw.replace(/^00/,'+');           // 00 -> +
-          raw = raw.replace(/^(\+?47)?/, '');    // drop +47 if present
-          raw = raw.replace(/\D/g,'');           // keep digits
-          el.value = '+47' + raw;                 // reattach +47
-        }
-      });
-    });
-  });
-})();
-</script>
-
 </body>
 </html>

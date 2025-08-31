@@ -1,0 +1,73 @@
+<!doctype html><html lang="no"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bestill mini-oppdrag – Habibi Express</title>
+<link rel="stylesheet" href="style.css"></head><body>
+
+<header class="header">
+  <div class="brand">
+    <div class="logo">H</div>
+    <div class="title">
+      <h1>HABIBI EXPRESS</h1>
+      <small>Flytting uten stress · <span class="arabic">تعال إلى دبي</span></small>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Hjem</a>
+    <a href="mini.html">Bestill mini-oppdrag</a>
+    <a href="tips.html">Tips oss (1000 kr)</a>
+    <a href="privacy.html">Personvern</a>
+    <a href="terms.html">Vilkår</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="card">
+    <div class="kicker">Mini-oppdrag</div>
+    <h3>Bestill mini-oppdrag</h3>
+    <form name="mini-oppdrag" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="mini-oppdrag">
+      <p style="display:none"><label>Ikke fyll: <input name="bot-field"></label></p>
+      <label>Oppdragstype</label><select name="type" required><option>Hente/levering (f.eks. sofa)</option><option>Bæring internt</option><option>Kjøring til minilager</option><option>Annet</option></select>
+      <label>Beskrivelse</label><textarea name="beskrivelse" rows="4" placeholder="Hva skal gjøres?"></textarea>
+      <label>Hentested</label><input name="hentested" required>
+      <label>Leveringssted</label><input name="leveringssted" required>
+      <label>Ønsket dato/tid</label><input type="datetime-local" name="tid">
+      <label>Telefonnummer</label><input name="telefon" required>
+      <div style="margin-top:12px"><button class="button" type="submit">Send forespørsel</button></div>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="container cols">
+    <div>
+      <div class="kicker">Habibi Express</div>
+      <p><strong>Flytting uten stress</strong> — Premium flytt & sjauing i Bergen.</p>
+      <p class="quote">Pris = Kjøretid (Google Maps) + 4 timer last/los. Helg/høytid +20%.</p>
+      <p><span class="badge">Tlf: <span class="tel">+47 47 87 87 69</span></span></p>
+      <p>E-post: <a href="mailto:HabibiExpressBergen@gmail.com">HabibiExpressBergen@gmail.com</a></p>
+    </div>
+    <div>
+      <div class="kicker">Finn oss</div>
+      <p><a href="https://www.instagram.com/Habibi__express" target="_blank" rel="noopener">Instagram @Habibi__express</a></p>
+      <p><a href="https://www.facebook.com/habibiexpress" target="_blank" rel="noopener">Facebook @habibiexpress</a></p>
+      <p><small class="helper">Google Maps-embed kan settes her</small></p>
+    </div>
+    <div>
+      <div class="kicker">Juridisk</div>
+      <p><a href="privacy.html">Personvernerklæring</a></p>
+      <p><a href="terms.html">Vilkår</a></p>
+    </div>
+  </div>
+  <div class="container footer-note">
+    © 2025 Habibi Express — Alle rettigheter forbeholdt.
+  </div>
+</footer>
+<div id="cookie" class="cookie">
+  <div class="grow">Vi bruker informasjonskapsler (cookies) for analyse og annonser. Godtar du?</div>
+  <button id="acceptCookies" class="accept">Godta</button>
+  <button id="declineCookies" class="decline">Avslå</button>
+</div>
+<script src="script.js"></script>
+
+</body></html>

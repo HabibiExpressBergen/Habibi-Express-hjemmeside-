@@ -1,0 +1,116 @@
+<!doctype html><html lang="no"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habibi Express – Flytting uten stress</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+
+<header class="header">
+  <div class="brand">
+    <div class="logo">H</div>
+    <div class="title">
+      <h1>HABIBI EXPRESS</h1>
+      <small>Flytting uten stress · <span class="arabic">تعال إلى دبي</span></small>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Hjem</a>
+    <a href="mini.html">Bestill mini-oppdrag</a>
+    <a href="tips.html">Tips oss (1000 kr)</a>
+    <a href="privacy.html">Personvern</a>
+    <a href="terms.html">Vilkår</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img src="hero.jpg" alt="Habibi Express – hero" />
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="kicker">Premium flyttebyrå · Bergen</div>
+    <h2>Flytting uten stress</h2>
+    <p>Få fastpris fra bilder og adresser. Vi bærer pent, trygt og effektivt.</p>
+    <div class="cta">
+      <a class="button" href="#bestill">Bestill flytting</a>
+      <a class="button outline" href="tips.html">Hjelp noen å flytte – få 1000 kr</a>
+    </div>
+  </div>
+</section>
+<main class="container">
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="kicker">Fastpris</div>
+      <h3>Hvordan vi priser</h3>
+      <p>Pris = Kjøretid (Google Maps) + 4 timer last/los. Helg/høytid +20%.</p>
+      <p>Last opp bilder og skriv adresser – vi svarer raskt.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Hvorfor oss</div>
+      <h3>Premium + ærlig</h3>
+      <ul>
+        <li>Profesjonell bæring — pent og trygt</li>
+        <li>Faste, tydelige priser uten overraskelser</li>
+        <li>Rask respons, fleksibel kapasitet</li>
+      </ul>
+    </div>
+  </div>
+  <section id="bestill" class="card">
+    <div class="kicker">Bestill</div><h3>Bestill flytting</h3>
+    <form name="bestill-flytting" method="POST" data-netlify="true" enctype="multipart/form-data" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="bestill-flytting">
+      <p style="display:none"><label>Ikke fyll ut dette: <input name="bot-field"></label></p>
+      <label>Navn</label><input name="navn" required>
+      <label>Telefonnummer</label><input name="telefon" required>
+      <label>Fra-adresse</label><input name="fra_adresse" required>
+      <label>Til-adresse</label><input name="til_adresse" required>
+      <label>Dato</label><input type="date" name="dato" required>
+      <label>Last opp bilder (møbler/ting)</label><input type="file" name="bilder" multiple>
+      <label>Kommentar (valgfritt)</label><textarea name="kommentar" rows="4" placeholder="Etasjer, heis, spesielle ting..."></textarea>
+      <div style="margin-top:12px"><button class="button" type="submit">Send forespørsel</button></div>
+      <small class="helper">Eller send e-post: HabibiExpressBergen@gmail.com</small>
+    </form>
+  </section>
+  <section class="card gallery">
+    <div class="kicker">Galleri</div><h3>Scener (erstattes med ekte bilder)</h3>
+    <div class="grid grid-3">
+      <img src="scene_strand.jpg" alt="Strand">
+      <img src="scene_bryggen.jpg" alt="Bryggen">
+      <img src="scene_lager.jpg" alt="Lager">
+      <img src="scene_ferge.jpg" alt="Ferge">
+      <img src="scene_natt.jpg" alt="Natt">
+      <img src="scene_motorvei.jpg" alt="Motorvei">
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container cols">
+    <div>
+      <div class="kicker">Habibi Express</div>
+      <p><strong>Flytting uten stress</strong> — Premium flytt & sjauing i Bergen.</p>
+      <p class="quote">Pris = Kjøretid (Google Maps) + 4 timer last/los. Helg/høytid +20%.</p>
+      <p><span class="badge">Tlf: <span class="tel">+47 47 87 87 69</span></span></p>
+      <p>E-post: <a href="mailto:HabibiExpressBergen@gmail.com">HabibiExpressBergen@gmail.com</a></p>
+    </div>
+    <div>
+      <div class="kicker">Finn oss</div>
+      <p><a href="https://www.instagram.com/Habibi__express" target="_blank" rel="noopener">Instagram @Habibi__express</a></p>
+      <p><a href="https://www.facebook.com/habibiexpress" target="_blank" rel="noopener">Facebook @habibiexpress</a></p>
+      <p><small class="helper">Google Maps-embed kan settes her</small></p>
+    </div>
+    <div>
+      <div class="kicker">Juridisk</div>
+      <p><a href="privacy.html">Personvernerklæring</a></p>
+      <p><a href="terms.html">Vilkår</a></p>
+    </div>
+  </div>
+  <div class="container footer-note">
+    © 2025 Habibi Express — Alle rettigheter forbeholdt.
+  </div>
+</footer>
+<div id="cookie" class="cookie">
+  <div class="grow">Vi bruker informasjonskapsler (cookies) for analyse og annonser. Godtar du?</div>
+  <button id="acceptCookies" class="accept">Godta</button>
+  <button id="declineCookies" class="decline">Avslå</button>
+</div>
+<script src="script.js"></script>
+
+</body></html>

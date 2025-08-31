@@ -25,13 +25,14 @@
     <div class="kicker">Tips & få 1000 kr</div>
     <h3>Tips oss om noen som skal flytte</h3>
     <p>Fyll inn feltene under. Vi kontakter dem. Hvis oppdraget blir booket og gjennomført, får du 1000 kr via valgt betalingsmetode.</p>
-    <form name="tips-1000kr" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form name="tips-1000kr" method="POST" action="/takk.html" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="tips-1000kr">
+      <input type="hidden" name="subject" value="Nytt tips – Habibi Express">
       <p style="display:none"><label>Ikke fyll: <input name="bot-field"></label></p>
-      <label>Telefonnummer til den som skal flytte</label><input name="kunde_telefon" required>
+      <label>Telefonnummer til den som skal flytte</label><input name="kunde_telefon" required inputmode="tel" autocomplete="tel" pattern="^\+?\d[\d\s](6,)$" placeholder="+47 4X XX XX XXX">
       <label>Betalingsmetode</label><select name="betaling" required><option>Vipps</option><option>Revolut</option><option>Bank</option></select>
       <label>Betalingsinfo (f.eks. Vipps-nummer)</label><input name="betaling_info" required>
-      <label>Ditt navn (valgfritt)</label><input name="ditt_navn">
+      <label>Ditt navn (valgfritt)</label><input name="ditt_navn" autocomplete="name">
       <div style="margin-top:12px"><button class="button" type="submit">Send tips</button></div>
     </form>
   </section>

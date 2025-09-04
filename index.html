@@ -1,343 +1,207 @@
 <!doctype html>
-<html lang="no" class="scroll-smooth">
+<html lang="no">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Habibi Express – Flytting uten stress | Bergen</title>
-  <meta name="description" content="Habibi Express: Premium flyttebyrå i Bergen. Fast pris, raske leveranser, bortkjøring. 10+ års erfaring. Ring +47 47 87 87 69."/>
-  <link rel="icon" href="favicon.png"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { habibi: { gold: '#D4AF37', dark: '#0B0B0B', gray: '#1a1a1a' } },
-          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','sans-serif'], display: ['Playfair Display','ui-serif','Georgia','serif'] },
-          boxShadow: { glow: '0 0 0 1px rgba(212,175,55,0.35), 0 20px 40px rgba(0,0,0,0.4)' }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
-  <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <title>Habibi Express – Flytting uten stress</title>
+  <meta name="description" content="Habibi Express: Null stress flytting i Bergen, hele Skandinavia og Dubai. Raskt, profesjonelt og trygt." />
+  <meta name="robots" content="index, follow" />
+  <link rel="preload" href="hero.jpg" as="image">
+  <link rel='icon' type='image/png' href='favicon.png'/>
+  <link rel='stylesheet' href='aos.css'/>
+  <link rel='stylesheet' href='swiper-bundle.min.css'/>
   <style>
-    .gold-gradient{background:linear-gradient(90deg,#D4AF37 0%,#F4E28D 50%,#D4AF37 100%)}
-    .gold-text{background:linear-gradient(90deg,#F9E9A8,#D4AF37);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .blur-bg{backdrop-filter: blur(10px)}
-    .card{border:1px solid rgba(212,175,55,.18);}
-    .btn{position:relative}
-    .btn:after{content:"";position:absolute;inset:0;border-radius:1rem;padding:1px;background:linear-gradient(135deg, rgba(212,175,55,.7), rgba(255,255,255,.05));-webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);-webkit-mask-composite: xor;mask-composite: exclude}
-    .hero-slide{height:72vh}
-    @media (min-width:1024px){.hero-slide{height:88vh}}
+    :root {{
+      --bg:#0b1020; --fg:#ffffff; --gold:#c8a24b; --ink:#0a0a0a; --ink2:#111827;
+    }}
+    *{{box-sizing:border-box;}}
+    html,body{{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}}
+    a{{color:var(--fg);text-decoration:none}}
+    .wrap{{max-width:1100px;margin:0 auto;padding:16px}}
+    header{{position:sticky;top:0;background:linear-gradient(180deg,rgba(11,16,32,.95),rgba(11,16,32,.6));backdrop-filter:blur(6px);z-index:50;border-bottom:1px solid rgba(255,255,255,.06)}}
+    .brand{{display:flex;align-items:center;gap:12px;padding:10px 0}}
+    .brand img{{height:36px;width:auto;border-radius:8px}}
+    .brand h1{{margin:0;font-size:20px;letter-spacing:.3px}}
+    nav{{display:flex;gap:14px;flex-wrap:wrap}}
+    .cta{{background:var(--gold);color:#111;padding:10px 16px;border-radius:12px;font-weight:700}}
+    .hero{{position:relative;border-radius:20px;overflow:hidden;margin:18px 0}}
+    .hero img{{width:100%;height:52vh;object-fit:cover;display:block;filter:contrast(1.05) saturate(1.05)}}
+    .hero .overlay{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.35))}}
+    .hero .text{{position:absolute;left:20px;bottom:18px;max-width:720px}}
+    .kicker{{color:#cbd5e1;text-transform:uppercase;letter-spacing:.18em;font-size:12px;margin-bottom:6px}}
+    .title{{font-size:34px;line-height:1.15;margin:0 0 8px;font-weight:800}}
+    .subtitle{{font-size:18px;color:#e5e7eb;max-width:680px;margin:0 0 12px}}
+    .grid{{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}}
+    .card{{grid-column:span 12;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px}}
+    @media(min-width:700px){{.card.sm6{{grid-column:span 6}} .card.sm4{{grid-column:span 4}}}}
+    .card h3{{margin:0 0 8px}}
+    .muted{{color:#cbd5e1}}
+    footer{{margin:28px 0 60px;opacity:.95}}
+    .btn{{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.16)}}
+    input,select,textarea{{width:100%;padding:12px;border-radius:12px;border:1px solid #334155;background:#0f172a;color:#fff;outline:none}}
+    form .row{{display:grid;gap:10px}}
+    @media(min-width:700px){{form .row.two{{grid-template-columns:1fr 1fr}}}}
+    small.label{{display:block;color:#cbd5e1;margin:6px 0 4px}}
   </style>
 </head>
-<body class="bg-habibi-dark text-white font-sans">
-  <!-- Floating CTA -->
-  <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40">
-    <div class="flex gap-2 p-2 rounded-2xl bg-black/60 blur-bg shadow-glow">
-      <a href="tel:+4747878769" class="btn px-4 py-2 rounded-xl bg-habibi-gold text-black font-semibold">Ring</a>
-      <a href="https://wa.me/4747878769" class="btn px-4 py-2 rounded-xl bg-white/10">WhatsApp</a>
-      <a href="#bestill" class="btn px-4 py-2 rounded-xl bg-white/10">Bestill</a>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="sticky top-0 z-30 bg-black/60 blur-bg border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
-        <a href="#" class="flex items-center gap-3">
-          <img src="logo.png" alt="Habibi Express logo" class="w-10 h-10 rounded-lg"/>
-          <div>
-            <div class="text-xl font-bold tracking-wide">Habibi Express</div>
-            <div class="text-xs text-white/70">Flytting uten stress</div>
-          </div>
-        </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm text-white/80">
-          <a href="#tjenester" class="hover:text-white">Tjenester</a>
-          <a href="#hvorfor" class="hover:text-white">Hvorfor oss</a>
-          <a href="#galleri" class="hover:text-white">Galleri</a>
-          <a href="#bestill" class="hover:text-white">Bestill</a>
-          <a href="#tips" class="hover:text-white">Tips oss</a>
-        </nav>
-        <a href="tel:+4747878769" class="hidden md:inline-flex btn px-4 py-2 rounded-xl bg-habibi-gold text-black font-semibold shadow-glow">+47 47 87 87 69</a>
+<body>
+  <header>
+    <div class="wrap grid" style="align-items:center">
+      <div class="brand" style="grid-column:span 8">
+        <img src='logo.png' alt='Habibi Express logo'/>
+        <h1>Habibi Express</h1>
+        <span class="muted" style="margin-left:10px">Null stress</span>
       </div>
+      <nav style="grid-column:span 4;justify-content:flex-end">
+        <a href="#bestill" class="cta">Bestill flytting nå</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section>
-    <div class="swiper hero-swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide hero-slide relative">
-          <img src="scene_ferge.jpg" class="w-full h-full object-cover" alt="Flytting i Bergen – Habibi Express"/>
-          <div class="absolute inset-0 bg-black/50"></div>
-          <div class="absolute inset-0 flex items-center">
-            <div class="max-w-7xl mx-auto px-6">
-              <h1 class="text-4xl md:text-6xl font-display font-extrabold leading-tight">
-                <span class="gold-text">Flytting uten stress</span><br/>Premium service i Bergen
-              </h1>
-              <p class="mt-4 text-white/80 max-w-xl">10+ års erfaring. Fast pris, raske leveranser og trygg håndtering. Vi gjør jobben skikkelig – hver gang.</p>
-              <div class="mt-6 flex flex-wrap gap-3">
-                <a href="#bestill" class="btn px-6 py-3 rounded-2xl bg-habibi-gold text-black font-semibold shadow-glow">Bestill flytting</a>
-                <a href="#galleri" class="btn px-6 py-3 rounded-2xl bg-white/10">Se arbeid & galleri</a>
-              </div>
+  <main class="wrap">
+    <section class="hero" id="top">
+      <img src='hero.jpg' alt='Habibi Express hero'/>
+      <div class="overlay"></div>
+      <div class="text">
+        <div class="kicker">Bergen • Skandinavia • Dubai</div>
+        <h2 class="title">Flytting uten stress – raskt og profesjonelt</h2>
+        <p class="subtitle">Vi tilbyr flytting for private og bedrifter, levering/småoppdrag og annet arbeid tilpasset våre to typer flyttebiler.</p>
+        <a class="cta" href="#bestill">Få gratis tilbud</a>
+      </div>
+    </section>
+
+    <section class="grid" id="tjenester">
+      <div class="card sm4">
+        <h3>1. Flytting for private og bedrifter</h3>
+        <p class="muted">Effektiv, trygg og fleksibel flytting – lokalt og langt.</p>
+      </div>
+      <div class="card sm4">
+        <h3>2. Levering og småoppdrag</h3>
+        <p class="muted">Transport av enkeltgjenstander og hasteoppdrag samme dag.</p>
+      </div>
+      <div class="card sm4">
+        <h3>3. Tilpasset arbeid</h3>
+        <p class="muted">Løsninger tilpasset våre to typer flyttebiler – vi fikser det meste.</p>
+      </div>
+    </section>
+
+    <section class="grid" id="bestill">
+      <div class="card sm6">
+        <h3>Bestill flytting</h3>
+        <form action="mailto:HabibiExpressBergen@gmail.com" method="post" enctype="text/plain">
+          <div class="row two">
+            <div>
+              <small class="label">Navn</small>
+              <input type="text" name="navn" placeholder="Fullt navn" required />
+            </div>
+            <div>
+              <small class="label">Telefonnummer</small>
+              <input type="tel" name="telefon" placeholder="+47 47 87 87 69" />
             </div>
           </div>
-        </div>
-        <div class="swiper-slide hero-slide relative">
-          <img src="hero.jpg" class="w-full h-full object-cover" alt="Bergen – flytteoppdrag"/>
-          <div class="absolute inset-0 bg-black/50"></div>
-          <div class="absolute inset-0 flex items-center">
-            <div class="max-w-7xl mx-auto px-6">
-              <h2 class="text-3xl md:text-5xl font-display font-bold">Bergen-spesialister</h2>
-              <p class="mt-3 text-white/80 max-w-xl">Vi kjenner byen, logistikken og bygårdene. Effektiv flytting uten overraskelser.</p>
-              <a href="#tjenester" class="mt-5 inline-block btn px-6 py-3 rounded-2xl bg-white/10">Våre tjenester</a>
+          <div class="row">
+            <small class="label">Fra-adresse</small>
+            <input type="text" name="fra" placeholder="Gate, nr, postnr og sted" required />
+          </div>
+          <div class="row">
+            <small class="label">Til-adresse</small>
+            <input type="text" name="til" placeholder="Gate, nr, postnr og sted" required />
+          </div>
+          <div class="row two">
+            <div>
+              <small class="label">Ønsket dato</small>
+              <input type="date" name="dato" />
+            </div>
+            <div>
+              <small class="label">Last opp bilder (valgfritt)</small>
+              <input type="file" name="bilder" multiple />
             </div>
           </div>
-        </div>
-        <div class="swiper-slide hero-slide relative">
-          <img src="scene_motorvei.jpg" class="w-full h-full object-cover" alt="Ekspress – motorvei"/>
-          <div class="absolute inset-0 bg-black/50"></div>
-          <div class="absolute inset-0 flex items-center">
-            <div class="max-w-7xl mx-auto px-6">
-              <h2 class="text-3xl md:text-5xl font-display font-bold">Ekspresslevering</h2>
-              <p class="mt-3 text-white/80 max-w-xl">Når det haster: dør-til-dør i hele Vestland.</p>
-              <a href="#bestill" class="mt-5 inline-block btn px-6 py-3 rounded-2xl bg-white/10">Få tilbud</a>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide hero-slide relative">
-          <img src="scene_lager.jpg" class="w-full h-full object-cover" alt="Pakking & lager"/>
-          <div class="absolute inset-0 bg-black/50"></div>
-          <div class="absolute inset-0 flex items-center">
-            <div class="max-w-7xl mx-auto px-6">
-              <h2 class="text-3xl md:text-5xl font-display font-bold">Pakking & lager</h2>
-              <p class="mt-3 text-white/80 max-w-xl">Vi pakker trygt, demonterer og monterer. Midlertidig lagring ved behov.</p>
-              <a href="#bestill" class="mt-5 inline-block btn px-6 py-3 rounded-2xl bg-white/10">Bestill</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
-
-  <!-- Why -->
-  <section class="py-12 md:py-20 bg-gradient-to-b from-black to-habibi-gray border-t border-white/10" id="hvorfor">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="card rounded-2xl p-6 bg-white/5"><div class="text-habibi-gold text-4xl font-extrabold">10+</div><div class="mt-2 font-semibold">Års erfaring</div><p class="text-white/70 mt-1">Ledes av fagfolk med 10+ års praktisk flytte-erfaring (mentor 20 år).</p></div>
-        <div class="card rounded-2xl p-6 bg-white/5"><div class="text-habibi-gold text-4xl font-extrabold">Fast pris</div><div class="mt-2 font-semibold">Ærlig og forutsigbart</div><p class="text-white/70 mt-1">Avtalt pris før oppdraget. Ingen skjulte kostnader.</p></div>
-        <div class="card rounded-2xl p-6 bg-white/5"><div class="text-habibi-gold text-4xl font-extrabold">Ekspress</div><div class="mt-2 font-semibold">Når det haster</div><p class="text-white/70 mt-1">Rask respons og levering. Vi vet at tid er penger.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="tjenester" class="py-14 md:py-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-display font-semibold">Tjenester</h2>
-      <p class="text-white/70 mt-2">Flytting • Bortkjøring • Ekspresslevering • Pakking • Utvask</p>
-      <div class="grid md:grid-cols-3 gap-6 mt-8">
-        <div class="card rounded-2xl overflow-hidden bg-white/5"><img src="scene_natt.jpg" alt="Flytting" class="w-full h-48 object-cover"/><div class="p-6"><h3 class="text-xl font-semibold">Flytting</h3><p class="text-white/70 mt-1">Trygg og effektiv flyttehjelp – fra pakking til montering.</p></div></div>
-        <div class="card rounded-2xl overflow-hidden bg-white/5"><img src="scene_bryggen.jpg" alt="Bortkjøring" class="w-full h-48 object-cover"/><div class="p-6"><h3 class="text-xl font-semibold">Bortkjøring</h3><p class="text-white/70 mt-1">Vi henter og kjører bort søppel og gamle møbler.</p></div></div>
-        <div class="card rounded-2xl overflow-hidden bg-white/5"><img src="scene_lager.jpg" alt="Ekspresslevering" class="w-full h-48 object-cover"/><div class="p-6"><h3 class="text-xl font-semibold">Ekspresslevering</h3><p class="text-white/70 mt-1">Hasteoppdrag samme dag – ring oss nå.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section id="galleri" class="py-14 md:py-20 bg-black/40 border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="columns-1 sm:columns-2 md:columns-3 gap-4 mt-8 [column-fill:_balance]">
-        <img src="hero.jpg" class="mb-4 rounded-2xl w-full object-cover"/><img src="scene_bryggen.jpg" class="mb-4 rounded-2xl w-full object-cover"/><img src="scene_ferge.jpg" class="mb-4 rounded-2xl w-full object-cover"/><img src="scene_lager.jpg" class="mb-4 rounded-2xl w-full object-cover"/><img src="scene_motorvei.jpg" class="mb-4 rounded-2xl w-full object-cover"/><img src="scene_natt.jpg" class="mb-4 rounded-2xl w-full object-cover"/><img src="scene_strand.jpg" class="mb-4 rounded-2xl w-full object-cover"/>
-      </div>
-    </div>
-  </section>
-
-  <!-- Booking -->
-  <section id="bestill" class="py-16 md:py-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-display font-semibold">Bestill flytting</h2>
-      <p class="text-white/70 mt-2">Telefonnummer først. Ingen strenge krav – vi tar resten på telefon.</p>
-      <div class="grid md:grid-cols-2 gap-8 mt-8">
-        <form id="form-bestill" class="card bg-white/5 rounded-2xl p-6 space-y-4" data-form="bestill">
-          <div><label class="block text-sm text-white/70">Telefonnummer</label>
-            <input name="Telefon" required placeholder="+47 47 87 87 69" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold" />
-          </div>
-          <div><label class="block text-sm text-white/70">Fra adresse</label>
-            <input name="Fra" placeholder="Gate, nr, postnr, sted" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold" />
-          </div>
-          <div><label class="block text-sm text-white/70">Til adresse</label>
-            <input name="Til" placeholder="Gate, nr, postnr, sted" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold" />
-          </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div><label class="block text-sm text-white/70">Dato</label>
-              <input type="date" name="Dato" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold" /></div>
-            <div><label class="block text-sm text-white/70">Tid</label>
-              <input type="time" name="Tid" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold" /></div>
-          </div>
-          <div><label class="block text-sm text-white/70">Detaljer</label>
-            <textarea name="Detaljer" rows="4" placeholder="Antall rom, tunge ting, heis, parkering, osv." class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold"></textarea></div>
-          <div class="flex flex-wrap gap-3 pt-2">
-            <button class="btn px-5 py-3 rounded-xl bg-habibi-gold text-black font-semibold" data-submit="bestill" type="button">Send på e‑post</button>
-            <a href="tel:+4747878769" class="btn px-5 py-3 rounded-xl bg-white/10">Ring oss</a>
-            <a href="https://wa.me/4747878769" class="btn px-5 py-3 rounded-xl bg-white/10">WhatsApp</a>
+          <div class="row">
+            <button class="cta" type="submit">Send forespørsel</button>
           </div>
         </form>
-
-        <div class="space-y-6">
-          <div class="card rounded-2xl p-6 bg-white/5">
-            <h3 class="text-xl font-semibold">Slik får du fast pris</h3>
-            <ol class="list-decimal list-inside text-white/70 mt-2 space-y-1">
-              <li>Fyll inn telefonnummer og adresse(r).</li>
-              <li>Ta bilder/video av det som skal flyttes.</li>
-              <li>Send via WhatsApp – vi svarer med fast pris.</li>
-            </ol>
-            <p class="text-white/50 text-sm mt-3">Bonus: Vi beregner kjøre-tid + last/lossetid for forutsigbar pris.</p>
-          </div>
-          <div class="card rounded-2xl p-6 bg-white/5">
-            <h3 class="text-xl font-semibold">Ekspress i dag?</h3>
-            <p class="text-white/70 mt-1">Ring <a class="underline" href="tel:+4747878769">+47 47 87 87 69</a>.</p>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Tip us -->
-  <section id="tips" class="py-16 md:py-20 bg-black/40 border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-display font-semibold">Tips oss om noen som skal flytte</h2>
-      <p class="text-white/70 mt-2">Få 1000 kr når oppdraget blir gjennomført.</p>
-      <form id="form-tips" class="card bg-white/5 rounded-2xl p-6 mt-6 space-y-4" data-form="tips">
-        <div><label class="block text-sm text-white/70">Telefonnummer til den som flytter</label>
-          <input name="Telefon (kunde du tipser om)" required placeholder="+47 47 87 87 69" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold"/></div>
-        <div><label class="block text-sm text-white/70">Utbetalingsmetode</label>
-          <select name="Utbetalingsmetode" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold"><option>Vipps</option><option>Revolut</option><option>Bank</option></select></div>
-        <div><label class="block text-sm text-white/70">Betalingsinfo</label>
-          <input name="Betalingsinfo" placeholder="F.eks. Vipps-nummer" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold"/></div>
-        <div class="flex flex-wrap gap-3 pt-2">
-          <button class="btn px-5 py-3 rounded-xl bg-habibi-gold text-black font-semibold" data-submit="tips" type="button">Send på e‑post</button>
-          <a href="https://wa.me/4747878769" class="btn px-5 py-3 rounded-xl bg-white/10">WhatsApp</a>
-        </div>
-        <p class="text-xs text-white/50">Vi kontakter kunden. Utbetaling skjer når oppdraget er gjennomført og kunden har betalt.</p>
-      </form>
-    </div>
-  </section>
-
-  <!-- Mini -->
-  <section id="mini" class="py-16 md:py-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-display font-semibold">Bestill mini-oppdrag</h2>
-      <p class="text-white/70 mt-2">Trenger du hjelp i dag? Vi fikser småoppdrag raskt.</p>
-      <form id="form-mini" class="card bg-white/5 rounded-2xl p-6 mt-6 space-y-4" data-form="mini">
-        <div><label class="block text-sm text-white/70">Telefonnummer</label>
-          <input name="Telefon" required placeholder="+47 47 87 87 69" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold"/></div>
-        <div><label class="block text-sm text-white/70">Beskrivelse</label>
-          <textarea name="Beskrivelse" rows="3" placeholder="Hva trenger du hjelp til?" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold"></textarea></div>
-        <div class="grid grid-cols-2 gap-4">
-          <div><label class="block text-sm text-white/70">Dato</label>
-            <input type="date" name="Dato" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold"/></div>
-          <div><label class="block text-sm text-white/70">Tid</label>
-            <input type="time" name="Tid" class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 outline-none focus:border-habibi-gold"/></div>
-        </div>
-        <div class="flex flex-wrap gap-3 pt-2">
-          <button class="btn px-5 py-3 rounded-xl bg-habibi-gold text-black font-semibold" data-submit="mini" type="button">Send på e‑post</button>
-          <a href="https://wa.me/4747878769" class="btn px-5 py-3 rounded-xl bg-white/10">WhatsApp</a>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-white/10 bg-black/70">
-    <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
-      <div>
-        <div class="flex items-center gap-3">
-          <img src="logo.png" alt="Habibi Express logo" class="w-10 h-10 rounded-lg"/>
-          <div><div class="font-bold">Habibi Express</div><div class="text-white/70 text-sm">Bergen & Vestland</div></div>
-        </div>
-        <p class="text-white/60 mt-3 text-sm">Profesjonell flyttehjelp, bortkjøring og ekspresslevering. <span title="Kom til Dubai" class="opacity-70">تعال إلى دبي</span></p>
+      <div class="card sm6">
+        <h3>Tips oss om noen som skal flytte – få 1000 kr</h3>
+        <form action="mailto:HabibiExpressBergen@gmail.com" method="post" enctype="text/plain">
+          <div class="row">
+            <small class="label">Telefonnummer til den som flytter</small>
+            <input type="tel" name="kunde_telefon" placeholder="8 siffer eller +47########" required />
+          </div>
+          <div class="row">
+            <small class="label">Utbetalingsmetode</small>
+            <select name="betaling">
+              <option>Vipps</option>
+              <option>Revolut</option>
+              <option>Bank</option>
+            </select>
+          </div>
+          <div class="row">
+            <small class="label">Betalingsinfo (f.eks. Vipps-nummer)</small>
+            <input type="text" name="betalingsinfo" placeholder="Ditt nummer/kontonr." />
+          </div>
+          <div class="row">
+            <button class="btn" type="submit">Send tips</button>
+          </div>
+        </form>
       </div>
-      <div>
-        <div class="font-semibold mb-2">Kontakt</div>
-        <ul class="text-white/70 space-y-1 text-sm">
-          <li>Telefon: <a class="underline" href="tel:+4747878769">+47 47 87 87 69</a></li>
-          <li>E‑post: <a class="underline" href="mailto:HabibiExpressBergen@gmail.com">HabibiExpressBergen@gmail.com</a></li>
-          <li>Instagram: <a class="underline" href="https://instagram.com/Habibi__express" target="_blank">@Habibi__express</a></li>
-          <li>Facebook: <a class="underline" href="https://facebook.com/habibiexpress" target="_blank">@habibiexpress</a></li>
+    </section>
+
+    <section class="grid">
+      <div class="card sm6">
+        <h3>Bestill mini-oppdrag</h3>
+        <form action="mailto:HabibiExpressBergen@gmail.com" method="post" enctype="text/plain">
+          <div class="row two">
+            <div>
+              <small class="label">Hva skal transporteres?</small>
+              <input type="text" name="oppdrag" placeholder="F.eks. sofa, vaskemaskin" required />
+            </div>
+            <div>
+              <small class="label">Telefonnummer</small>
+              <input type="tel" name="telefon" placeholder="+47 47 87 87 69" />
+            </div>
+          </div>
+          <div class="row">
+            <small class="label">Adresse(r)</small>
+            <textarea name="adresser" rows="3" placeholder="Hentested og leveringsadresse"></textarea>
+          </div>
+          <div class="row">
+            <button class="btn" type="submit">Bestill</button>
+          </div>
+        </form>
+      </div>
+      <div class="card sm6">
+        <h3>Om oss</h3>
+        <p class="muted">Seriøst flyttefirma med erfaring, fleksibilitet og gode priser. Vi leverer premium opplevelse – rent, luksuriøst og moderne.</p>
+        <ul class="muted">
+          <li>Telefon: +47 47 87 87 69</li>
+          <li>E-post: HabibiExpressBergen@gmail.com</li>
+          <li>Instagram: @Habibi__express • Facebook: @habibiexpress</li>
         </ul>
       </div>
-      <div>
-        <div class="font-semibold mb-2">Snarveier</div>
-        <ul class="text-white/70 space-y-1 text-sm">
-          <li><a class="underline" href="#bestill">Bestill flytting</a></li>
-          <li><a class="underline" href="#tips">Tips oss – få 1000 kr</a></li>
-          <li><a class="underline" href="#mini">Bestill mini‑oppdrag</a></li>
-          <li><a class="underline" href="#galleri">Galleri</a></li>
-        </ul>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="grid">
+      <div class="card">
+        <div class="grid" style="align-items:center">
+          <div style="grid-column:span 8">
+            <strong>Habibi Express – Flytting uten stress</strong><br/>
+            <span class="muted">Bergen • Hele Skandinavia • Dubai</span>
+          </div>
+          <div style="grid-column:span 4;text-align:right">
+            <a class="cta" href="#bestill">Bestill flytting nå</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="text-center text-white/40 text-xs py-4 border-t border-white/10">© <span id="year"></span> Habibi Express. Alle rettigheter forbeholdt.</div>
   </footer>
 
-  <!-- Toast -->
-  <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-white text-black rounded-xl px-4 py-3 shadow-lg hidden">Takk! Vi har mottatt skjemaet ditt.</div>
-
-  <script>
-    window.addEventListener('load', () => { AOS.init({ once: true, duration: 700, offset: 60 }); });
-    const heroSwiper = new Swiper('.hero-swiper', { loop: true, autoplay: { delay: 4800, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', clickable: true }, effect: 'fade', fadeEffect: { crossFade: true } });
-
-    // === Formspree integration ===
-    // Sett dine ekte Formspree-IDs her (3 separate skjema)
-    const FORMSPREE = {
-      bestill: 'https://formspree.io/f/XXXXX', // <-- bytt til din ID
-      tips:    'https://formspree.io/f/YYYYY', // <-- bytt til din ID
-      mini:    'https://formspree.io/f/ZZZZZ'  // <-- bytt til din ID
-    };
-
-    async function sendFormspree(formEl, endpoint){
-      const formData = new FormData(formEl);
-      // Legg til metadata
-      formData.append('_subject', 'Ny henvendelse – Habibi Express');
-      formData.append('_origin', window.location.href);
-      const res = await fetch(endpoint, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
-      if(res.ok){
-        formEl.reset();
-        showToast('Takk! Vi har mottatt skjemaet ditt.');
-      }else{
-        showToast('Kunne ikke sende nå. Prøv igjen eller kontakt oss på telefon.');
-      }
-    }
-
-    function showToast(msg){
-      const t = document.getElementById('toast');
-      t.textContent = msg;
-      t.classList.remove('hidden');
-      setTimeout(()=>t.classList.add('hidden'), 4000);
-    }
-
-    // Buttons
-    document.querySelectorAll('[data-submit]').forEach(btn => {
-      btn.addEventListener('click', async (e) => {
-        const type = e.currentTarget.getAttribute('data-submit'); // bestill | tips | mini
-        const form = document.querySelector(`[data-form="${type}"]`);
-        const endpoint = FORMSPREE[type];
-        if(!endpoint || endpoint.includes('XXXXX') || endpoint.includes('YYYYY') || endpoint.includes('ZZZZZ')){
-          showToast('Skjema ikke koblet til e-post enda. Send meg dine Formspree-IDs.');
-          return;
-        }
-        await sendFormspree(form, endpoint);
-      });
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src='aos.js'></script>
+  <script>try{AOS.init()}catch(e){}</script>
+  <script src='swiper-bundle.min.js'></script>
 </body>
 </html>

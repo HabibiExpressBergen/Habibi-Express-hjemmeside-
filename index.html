@@ -4,204 +4,360 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Habibi Express – Flytting uten stress</title>
-  <meta name="description" content="Habibi Express: Null stress flytting i Bergen, hele Skandinavia og Dubai. Raskt, profesjonelt og trygt." />
-  <meta name="robots" content="index, follow" />
-  <link rel="preload" href="hero.jpg" as="image">
-  <link rel='icon' type='image/png' href='favicon.png'/>
-  <link rel='stylesheet' href='aos.css'/>
-  <link rel='stylesheet' href='swiper-bundle.min.css'/>
+  <meta name="description" content="Habibi Express – Flytting uten stress. Rask, profesjonell og mobilvennlig flyttetjeneste i Bergen, hele Skandinavia og Dubai. Få gratis tilbud, bestill flytting eller tips oss og få 1000 kr." />
+  <meta name="keywords" content="flytting Bergen, flyttefirma, Habibi Express, null stress, moving Scandinavia, moving Dubai, flyttebyrå, rask flytting, profesjonell flytting" />
+  <meta name="theme-color" content="#0B1220" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root {{
-      --bg:#0b1020; --fg:#ffffff; --gold:#c8a24b; --ink:#0a0a0a; --ink2:#111827;
-    }}
-    *{{box-sizing:border-box;}}
-    html,body{{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}}
-    a{{color:var(--fg);text-decoration:none}}
-    .wrap{{max-width:1100px;margin:0 auto;padding:16px}}
-    header{{position:sticky;top:0;background:linear-gradient(180deg,rgba(11,16,32,.95),rgba(11,16,32,.6));backdrop-filter:blur(6px);z-index:50;border-bottom:1px solid rgba(255,255,255,.06)}}
-    .brand{{display:flex;align-items:center;gap:12px;padding:10px 0}}
-    .brand img{{height:36px;width:auto;border-radius:8px}}
-    .brand h1{{margin:0;font-size:20px;letter-spacing:.3px}}
-    nav{{display:flex;gap:14px;flex-wrap:wrap}}
-    .cta{{background:var(--gold);color:#111;padding:10px 16px;border-radius:12px;font-weight:700}}
-    .hero{{position:relative;border-radius:20px;overflow:hidden;margin:18px 0}}
-    .hero img{{width:100%;height:52vh;object-fit:cover;display:block;filter:contrast(1.05) saturate(1.05)}}
-    .hero .overlay{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.35))}}
-    .hero .text{{position:absolute;left:20px;bottom:18px;max-width:720px}}
-    .kicker{{color:#cbd5e1;text-transform:uppercase;letter-spacing:.18em;font-size:12px;margin-bottom:6px}}
-    .title{{font-size:34px;line-height:1.15;margin:0 0 8px;font-weight:800}}
-    .subtitle{{font-size:18px;color:#e5e7eb;max-width:680px;margin:0 0 12px}}
-    .grid{{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}}
-    .card{{grid-column:span 12;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px}}
-    @media(min-width:700px){{.card.sm6{{grid-column:span 6}} .card.sm4{{grid-column:span 4}}}}
-    .card h3{{margin:0 0 8px}}
-    .muted{{color:#cbd5e1}}
-    footer{{margin:28px 0 60px;opacity:.95}}
-    .btn{{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.16)}}
-    input,select,textarea{{width:100%;padding:12px;border-radius:12px;border:1px solid #334155;background:#0f172a;color:#fff;outline:none}}
-    form .row{{display:grid;gap:10px}}
-    @media(min-width:700px){{form .row.two{{grid-template-columns:1fr 1fr}}}}
-    small.label{{display:block;color:#cbd5e1;margin:6px 0 4px}}
+    :root{
+      --bg:#0B1220;
+      --ink:#FFFFFF;
+      --muted:#C7CAD1;
+      --gold:#C2A55F;
+      --black:#0A0A0A;
+      --card:#0E1526;
+      --ring: rgba(194,165,95,.45);
+      --shadow: 0 20px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink);}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; height:auto}
+    .container{width:min(1200px, 92vw); margin-inline:auto}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:.6rem; padding:1rem 1.25rem; border-radius:999px; background:var(--gold); color:#111; font-weight:700; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.06)}
+    .btn.secondary{background:transparent; color:#fff; border:1.5px solid var(--gold)}
+    .btn.small{padding:.7rem 1rem; font-weight:600}
+    .badge{display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .7rem; border:1px solid var(--ring); color:#e8e0c9; border-radius:999px; background:linear-gradient(180deg, rgba(194,165,95,.15), rgba(194,165,95,.05)); font-size:.8rem}
+    header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(180%) blur(14px); background:rgba(11,18,32,.75); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
+    .logo{display:flex; align-items:center; gap:.8rem}
+    .brand{font-weight:800; letter-spacing:.5px}
+    .brand img{height:36px; width:auto; border-radius:8px; box-shadow:0 6px 16px rgba(0,0,0,.35)}
+
+    .hero{position:relative; overflow:hidden; min-height:68vh; display:grid; place-items:center; text-align:center;
+      background:
+        linear-gradient(180deg, rgba(11,18,32,.65), rgba(11,18,32,.85)),
+        url('hero.jpg') center/cover no-repeat;
+    }
+    .hero-inner{padding:clamp(2rem, 6vw, 5rem) 0}
+    .wordmark{font-size:clamp(2.4rem, 8vw, 4.2rem); font-weight:800; line-height:1.05; text-shadow:0 8px 30px rgba(0,0,0,.45)}
+    .sub{color:var(--muted); font-weight:400}
+    .cta-row{display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.2rem; justify-content:center}
+
+    .grid{display:grid; gap:1rem}
+    @media(min-width:840px){.grid.cols-3{grid-template-columns:repeat(3, 1fr)}}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow)}
+    .card h3{margin:.6rem 0 .6rem; font-size:1.1rem}
+    .card p{margin:0; color:#D7DBE3}
+    .card .thumb{border-radius:14px; border:1px solid rgba(255,255,255,.1); overflow:hidden; max-height:160px}
+
+    section{padding:clamp(2rem,6vw,4rem) 0}
+    .section-title{font-size:1.6rem; margin:0 0 .8rem}
+    .muted{color:var(--muted)}
+
+    form{display:grid; gap:.75rem}
+    label{font-size:.95rem}
+    input, textarea, select{width:100%; padding:1rem; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.04); color:#fff; outline:none}
+    input::file-selector-button{border:1px solid rgba(255,255,255,.18); padding:.6rem .9rem; border-radius:10px; margin-right:1rem; background:rgba(255,255,255,.08); color:#fff}
+    .form-card{padding:1.2rem; border-radius:var(--radius); background:var(--card); border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow)}
+    .twocol{display:grid; gap:.75rem}
+    @media(min-width:720px){.twocol{grid-template-columns:1fr 1fr}}
+
+    footer{border-top:1px solid rgba(255,255,255,.08); padding:2rem 0; color:#D7DBE3}
+    .footergrid{display:grid; gap:1rem}
+    @media(min-width:840px){.footergrid{grid-template-columns:2fr 1fr 1fr}}
+    .legal{opacity:.8; font-size:.9rem}
+
+    .sticky-cta{position:fixed; bottom:16px; left:50%; transform:translateX(-50%); background:rgba(12,18,32,.92); border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:.5rem; display:flex; gap:.5rem; z-index:50; box-shadow:0 12px 30px rgba(0,0,0,.4)}
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
   </style>
 </head>
 <body>
+  <div class="sticky-cta" aria-label="Hurtigvalg">
+    <a class="btn small" href="#bestill">Bestill flytting nå</a>
+    <a class="btn small secondary" href="#tilbud">Få gratis tilbud</a>
+  </div>
+
   <header>
-    <div class="wrap grid" style="align-items:center">
-      <div class="brand" style="grid-column:span 8">
-        <img src='logo.png' alt='Habibi Express logo'/>
-        <h1>Habibi Express</h1>
-        <span class="muted" style="margin-left:10px">Null stress</span>
-      </div>
-      <nav style="grid-column:span 4;justify-content:flex-end">
-        <a href="#bestill" class="cta">Bestill flytting nå</a>
+    <div class="container nav">
+      <a href="#" class="logo" aria-label="Habibi Express hjem">
+        <span class="brand">
+          <img src="logo.png" alt="Habibi Express logo" />
+        </span>
+        <span class="brand">Habibi Express</span>
+      </a>
+      <nav aria-label="Hovedmeny">
+        <a class="btn small secondary" href="tel:+4747878769">Ring oss: +47 47 87 87 69</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero" id="top">
-      <img src='hero.jpg' alt='Habibi Express hero'/>
-      <div class="overlay"></div>
-      <div class="text">
-        <div class="kicker">Bergen • Skandinavia • Dubai</div>
-        <h2 class="title">Flytting uten stress – raskt og profesjonelt</h2>
-        <p class="subtitle">Vi tilbyr flytting for private og bedrifter, levering/småoppdrag og annet arbeid tilpasset våre to typer flyttebiler.</p>
-        <a class="cta" href="#bestill">Få gratis tilbud</a>
+  <section class="hero">
+    <div class="hero-inner container">
+      <span class="badge">Null stress • Bergen → Skandinavia → Dubai</span>
+      <h1 class="wordmark" style="margin:.6rem 0 0">Habibi Express</h1>
+      <p style="margin:.2rem 0 .4rem; font-weight:600; color:#E9E4D2">Flytting uten stress</p>
+      <p class="sub" style="max-width:46ch; margin:0 auto">Vi tilbyr flytting uten stress, raskt og profesjonelt. Privat, bedrift eller småoppdrag – vi fikser det.</p>
+      <div class="cta-row">
+        <a class="btn" href="#bestill">Bestill flytting</a>
+        <a class="btn secondary" href="#tips">Tips oss – få 1000 kr</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="grid" id="tjenester">
-      <div class="card sm4">
-        <h3>1. Flytting for private og bedrifter</h3>
-        <p class="muted">Effektiv, trygg og fleksibel flytting – lokalt og langt.</p>
+  <section id="tjenester">
+    <div class="container">
+      <h2 class="section-title">Våre tjenester</h2>
+      <p class="muted" style="margin:0 0 1rem">Seriøst flyttefirma med erfaring, fleksibilitet og gode priser.</p>
+      <div class="grid cols-3">
+        <article class="card">
+          <div class="thumb"><img src="scene_lager.jpg" alt="Flytting for private og bedrifter"></div>
+          <h3>1. Flytting for private og bedrifter</h3>
+          <p>Effektiv planlegging, trygg transport og serviceteam i toppklasse.</p>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="scene_motorvei.jpg" alt="Levering og småoppdrag"></div>
+          <h3>2. Levering og småoppdrag</h3>
+          <p>Henting/levering av enkeltgjenstander, møbler og pakker – på timepris eller fastpris.</p>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="scene_bryggen.jpg" alt="Tilpasset arbeid"></div>
+          <h3>3. Tilpasset arbeid</h3>
+          <p>Oppdrag tilpasset våre to typer flyttebiler – vi finner løsningen som passer.</p>
+        </article>
       </div>
-      <div class="card sm4">
-        <h3>2. Levering og småoppdrag</h3>
-        <p class="muted">Transport av enkeltgjenstander og hasteoppdrag samme dag.</p>
-      </div>
-      <div class="card sm4">
-        <h3>3. Tilpasset arbeid</h3>
-        <p class="muted">Løsninger tilpasset våre to typer flyttebiler – vi fikser det meste.</p>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="grid" id="bestill">
-      <div class="card sm6">
-        <h3>Bestill flytting</h3>
-        <form action="mailto:HabibiExpressBergen@gmail.com" method="post" enctype="text/plain">
-          <div class="row two">
-            <div>
-              <small class="label">Navn</small>
-              <input type="text" name="navn" placeholder="Fullt navn" required />
-            </div>
-            <div>
-              <small class="label">Telefonnummer</small>
-              <input type="tel" name="telefon" placeholder="+47 47 87 87 69" />
-            </div>
-          </div>
-          <div class="row">
-            <small class="label">Fra-adresse</small>
-            <input type="text" name="fra" placeholder="Gate, nr, postnr og sted" required />
-          </div>
-          <div class="row">
-            <small class="label">Til-adresse</small>
-            <input type="text" name="til" placeholder="Gate, nr, postnr og sted" required />
-          </div>
-          <div class="row two">
-            <div>
-              <small class="label">Ønsket dato</small>
-              <input type="date" name="dato" />
-            </div>
-            <div>
-              <small class="label">Last opp bilder (valgfritt)</small>
-              <input type="file" name="bilder" multiple />
-            </div>
-          </div>
-          <div class="row">
-            <button class="cta" type="submit">Send forespørsel</button>
-          </div>
-        </form>
+  <section id="om-oss">
+    <div class="container grid">
+      <div>
+        <h2 class="section-title">Om oss</h2>
+        <p class="muted">Habibi Express er et seriøst flyttefirma fra Bergen som flytter i hele Skandinavia og Dubai. Vi er kjent for byens beste kundeservice og leverer raskt, trygt og profesjonelt – hver gang.</p>
+        <div class="cta-row"><a class="btn" href="#tilbud">Få gratis tilbud</a></div>
       </div>
+    </div>
+  </section>
 
-      <div class="card sm6">
-        <h3>Tips oss om noen som skal flytte – få 1000 kr</h3>
-        <form action="mailto:HabibiExpressBergen@gmail.com" method="post" enctype="text/plain">
-          <div class="row">
-            <small class="label">Telefonnummer til den som flytter</small>
-            <input type="tel" name="kunde_telefon" placeholder="8 siffer eller +47########" required />
-          </div>
-          <div class="row">
-            <small class="label">Utbetalingsmetode</small>
-            <select name="betaling">
-              <option>Vipps</option>
-              <option>Revolut</option>
-              <option>Bank</option>
-            </select>
-          </div>
-          <div class="row">
-            <small class="label">Betalingsinfo (f.eks. Vipps-nummer)</small>
-            <input type="text" name="betalingsinfo" placeholder="Ditt nummer/kontonr." />
-          </div>
-          <div class="row">
-            <button class="btn" type="submit">Send tips</button>
-          </div>
-        </form>
-      </div>
-    </section>
+  <section id="bestill">
+    <div class="container">
+      <h2 class="section-title">Bestill flytting</h2>
+      <p class="muted">Fyll ut skjemaet, så kontakter vi deg med fast pris basert på kjøre- og lastetid.</p>
 
-    <section class="grid">
-      <div class="card sm6">
-        <h3>Bestill mini-oppdrag</h3>
-        <form action="mailto:HabibiExpressBergen@gmail.com" method="post" enctype="text/plain">
-          <div class="row two">
-            <div>
-              <small class="label">Hva skal transporteres?</small>
-              <input type="text" name="oppdrag" placeholder="F.eks. sofa, vaskemaskin" required />
-            </div>
-            <div>
-              <small class="label">Telefonnummer</small>
-              <input type="tel" name="telefon" placeholder="+47 47 87 87 69" />
-            </div>
+      <form name="bestill-flytting" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form-card" enctype="multipart/form-data">
+        <input type="hidden" name="form-name" value="bestill-flytting">
+        <p class="sr-only"><label>Ikke fyll ut dette: <input name="bot-field"></label></p>
+        <div class="twocol">
+          <div>
+            <label for="navn">Navn</label>
+            <input id="navn" name="Navn" placeholder="Fullt navn" required>
           </div>
-          <div class="row">
-            <small class="label">Adresse(r)</small>
-            <textarea name="adresser" rows="3" placeholder="Hentested og leveringsadresse"></textarea>
-          </div>
-          <div class="row">
-            <button class="btn" type="submit">Bestill</button>
-          </div>
-        </form>
-      </div>
-      <div class="card sm6">
-        <h3>Om oss</h3>
-        <p class="muted">Seriøst flyttefirma med erfaring, fleksibilitet og gode priser. Vi leverer premium opplevelse – rent, luksuriøst og moderne.</p>
-        <ul class="muted">
-          <li>Telefon: +47 47 87 87 69</li>
-          <li>E-post: HabibiExpressBergen@gmail.com</li>
-          <li>Instagram: @Habibi__express • Facebook: @habibiexpress</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer class="wrap">
-    <div class="grid">
-      <div class="card">
-        <div class="grid" style="align-items:center">
-          <div style="grid-column:span 8">
-            <strong>Habibi Express – Flytting uten stress</strong><br/>
-            <span class="muted">Bergen • Hele Skandinavia • Dubai</span>
-          </div>
-          <div style="grid-column:span 4;text-align:right">
-            <a class="cta" href="#bestill">Bestill flytting nå</a>
+          <div>
+            <label for="telefon">Telefonnummer</label>
+            <input id="telefon" name="Telefon" placeholder="+47 47 87 87 69" inputmode="tel" required>
           </div>
         </div>
+        <div class="twocol">
+          <div>
+            <label for="fra">Fra-adresse</label>
+            <input id="fra" name="Fra-adresse" placeholder="Gate, nr, postnr og sted" required>
+          </div>
+          <div>
+            <label for="til">Til-adresse</label>
+            <input id="til" name="Til-adresse" placeholder="Gate, nr, postnr og sted" required>
+          </div>
+        </div>
+        <div class="twocol">
+          <div>
+            <label for="dato">Ønsket dato</label>
+            <input id="dato" name="Ønsket dato" type="date" required>
+          </div>
+          <div>
+            <label for="bilder">Last opp bilder (valgfritt)</label>
+            <input id="bilder" name="Bilder" type="file" accept="image/*" multiple>
+          </div>
+        </div>
+        <div>
+          <label for="beskrivelse">Kort beskrivelse</label>
+          <textarea id="beskrivelse" name="Beskrivelse" rows="4" placeholder="Etasjer, heis, mengde, spesielle ting osv."></textarea>
+        </div>
+        <div class="twocol">
+          <button class="btn" type="submit">Send bestilling</button>
+          <a class="btn secondary" href="#hjelp-andre">Hjelp noen å flytte – få 1000 kr</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="tips">
+    <div class="container">
+      <h2 class="section-title">Tips oss om noen som skal flytte – få 1000 kr</h2>
+      <p class="muted">Fyll ut skjemaet under. Vi betaler når oppdraget er bekreftet og gjennomført.</p>
+
+      <form name="tips-1000" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form-card">
+        <input type="hidden" name="form-name" value="tips-1000">
+        <p class="sr-only"><label>Ikke fyll ut dette: <input name="bot-field"></label></p>
+        <div>
+          <label for="kunde-tlf">Telefonnummer til den som flytter</label>
+          <input id="kunde-tlf" name="Kunde telefon" inputmode="tel" placeholder="Eks: 41234567" required>
+        </div>
+        <div>
+          <label for="betaling">Betalingsmetode</label>
+          <select id="betaling" name="Betalingsmetode" required>
+            <option value="Vipps">Vipps</option>
+            <option value="Revolut">Revolut</option>
+            <option value="Bank">Bank</option>
+          </select>
+        </div>
+        <div>
+          <label for="betalingsinfo">Betalingsinformasjon</label>
+          <input id="betalingsinfo" name="Betalingsinfo" placeholder="Vipps-nummer, Revolut-bruker eller kontonummer" required>
+        </div>
+        <button class="btn" type="submit">Send tips</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="mini">
+    <div class="container">
+      <h2 class="section-title">Bestill mini-oppdrag</h2>
+      <p class="muted">Småjobber og leveringer – raskt på plass.</p>
+
+      <form name="mini-oppdrag" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form-card">
+        <input type="hidden" name="form-name" value="mini-oppdrag">
+        <p class="sr-only"><label>Ikke fyll ut dette: <input name="bot-field"></label></p>
+        <div class="twocol">
+          <div>
+            <label for="mini-telefon">Telefonnummer</label>
+            <input id="mini-telefon" name="Telefonnummer" inputmode="tel" placeholder="+47 …" required>
+          </div>
+          <div>
+            <label for="mini-dato">Ønsket dato</label>
+            <input id="mini-dato" name="Ønsket dato" type="date" required>
+          </div>
+        </div>
+        <div class="twocol">
+          <div>
+            <label for="mini-fra">Fra-adresse</label>
+            <input id="mini-fra" name="Fra-adresse" placeholder="Adresse">
+          </div>
+          <div>
+            <label for="mini-til">Til-adresse</label>
+            <input id="mini-til" name="Til-adresse" placeholder="Adresse">
+          </div>
+        </div>
+        <div>
+          <label for="mini-beskrivelse">Hva skal vi gjøre?</label>
+          <textarea id="mini-beskrivelse" name="Oppdrag" rows="4" placeholder="F.eks. hente og levere sofa"></textarea>
+        </div>
+        <button class="btn" type="submit">Send forespørsel</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="container grid">
+      <div class="card">
+        <h2 class="section-title">Kontakt oss</h2>
+        <p>Telefon: <a href="tel:+4747878769">+47 47 87 87 69</a></p>
+        <p>E‑post: <a href="mailto:HabibiExpressBergen@gmail.com">HabibiExpressBergen@gmail.com</a></p>
+        <p>Instagram: <a href="https://instagram.com/Habibi__express" target="_blank" rel="noopener">@Habibi__express</a></p>
+        <p>Facebook: <a href="https://facebook.com/habibiexpress" target="_blank" rel="noopener">@habibiexpress</a></p>
+        <div class="cta-row"><a class="btn" href="#tilbud">Få gratis tilbud</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tilbud">
+    <div class="container">
+      <div class="form-card">
+        <h2 class="section-title">Få gratis tilbud</h2>
+        <form name="gratis-tilbud" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="gratis-tilbud">
+          <p class="sr-only"><label>Ikke fyll ut dette: <input name="bot-field"></label></p>
+          <div class="twocol">
+            <div>
+              <label for="tlf">Telefonnummer</label>
+              <input id="tlf" name="Telefonnummer" inputmode="tel" placeholder="+47 …" required>
+            </div>
+            <div>
+              <label for="kanal">Kontaktmetode</label>
+              <select id="kanal" name="Kontaktmetode">
+                <option>Telefon</option>
+                <option>SMS</option>
+                <option>E‑post</option>
+                <option>WhatsApp</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footergrid">
+      <div>
+        <div class="logo" style="margin-bottom:.8rem">
+          <span class="brand">
+            <img src="logo.png" alt="Habibi Express logo" />
+          </span>
+          <strong>Habibi Express</strong>
+        </div>
+        <p class="legal">Habibi Express – Flytting uten stress. Vi flytter i Bergen, hele Skandinavia og Dubai.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p><a href="tel:+4747878769">+47 47 87 87 69</a><br>
+        <a href="mailto:HabibiExpressBergen@gmail.com">HabibiExpressBergen@gmail.com</a></p>
+      </div>
+      <div>
+        <h4>Følg oss</h4>
+        <p><a href="https://instagram.com/Habibi__express" target="_blank" rel="noopener">Instagram</a><br>
+        <a href="https://facebook.com/habibiexpress" target="_blank" rel="noopener">Facebook</a></p>
       </div>
     </div>
   </footer>
 
-  <script src='aos.js'></script>
-  <script>try{AOS.init()}catch(e){}</script>
-  <script src='swiper-bundle.min.js'></script>
+  <script>
+    const bilderInput = document.querySelector('#bilder');
+    if (bilderInput){
+      const previewList = document.createElement('div');
+      previewList.style.display='grid';
+      previewList.style.gridTemplateColumns='repeat(auto-fill, minmax(90px, 1fr))';
+      previewList.style.gap='.5rem';
+      bilderInput.closest('form').appendChild(previewList);
+      bilderInput.addEventListener('change', () => {
+        previewList.innerHTML='';
+        [...bilderInput.files].slice(0,8).forEach(file => {
+          const url = URL.createObjectURL(file);
+          const img = document.createElement('img');
+          img.src = url; img.alt = file.name; img.style.borderRadius='10px'; img.style.border='1px solid rgba(255,255,255,.12)';
+          previewList.appendChild(img);
+        });
+      });
+    }
+
+    document.querySelectorAll('form[data-netlify]')?.forEach(form => {
+      form.addEventListener('submit', async (e) => {
+        const usingNetlify = location.host.includes('netlify') || location.host.includes('vercel');
+        if(!usingNetlify) return;
+        e.preventDefault();
+        const formData = new FormData(form);
+        const resp = await fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams([...formData]).toString()});
+        if(resp.ok){
+          form.reset();
+          const done = document.createElement('p');
+          done.textContent = 'Takk! Vi tar kontakt snart.';
+          done.style.color = '#C2E7B0';
+          form.appendChild(done);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

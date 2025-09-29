@@ -1,0 +1,172 @@
+<!doctype html>
+
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bestill flytting – Habibi Express</title>
+  <style>
+    :root{
+      --bg:#0b0f14;--card:#111825;--muted:#a9b2c1;--text:#e9edf5;--primary:#d6b36a;--primary-2:#0f1724;--ring:#2a3344;
+      --radius:18px;
+    }
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;}
+    .wrap{max-width:960px;margin:32px auto;padding:0 16px}
+    header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+    .logo{display:inline-flex;align-items:center;gap:10px}
+    .logo .dot{width:12px;height:12px;border-radius:50%;background:var(--primary)}
+    h1{font-size:clamp(28px,4vw,40px);margin:0}
+    p.sub{color:var(--muted);margin:6px 0 22px}form{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0));border:1px solid var(--ring);
+     padding:18px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.grid{display:grid;gap:12px}
+@media(min-width:780px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+label{font-size:14px;color:var(--muted)}
+input,select,textarea{width:100%;background:var(--card);border:1px solid var(--ring);color:var(--text);
+  padding:14px 12px;border-radius:14px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(214,179,106,.15)}
+textarea{min-height:120px;resize:vertical}
+.row{display:grid;gap:8px}
+.hint{font-size:12px;color:var(--muted)}
+
+.actions{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+@media(min-width:560px){.actions{flex-direction:row}}
+button,.ghost{
+  appearance:none;border:0;padding:14px 18px;border-radius:999px;font-weight:600;cursor:pointer;
+  transition:transform .06s ease, box-shadow .15s ease;align-items:center;justify-content:center;display:inline-flex
+}
+button{background:var(--primary);color:#141414}
+button:hover{transform:translateY(-1px)}
+.ghost{background:transparent;color:var(--primary);border:1px solid var(--primary)}
+
+.footer{margin-top:18px;color:var(--muted);font-size:13px}
+.preview{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.preview img{width:80px;height:80px;object-fit:cover;border-radius:10px;border:1px solid var(--ring)}
+.brand{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;margin-top:4px}
+.brand b{color:var(--text)}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-label="Habibi Express">
+        <span class="dot" aria-hidden="true"></span>
+        <strong>Habibi Express</strong>
+      </div>
+    </header><h1>Bestill flytting</h1>
+<p class="sub">Fyll ut skjemaet, så kontakter vi deg med fast pris basert på kjøre- og lastetid.</p>
+
+<form id="bookingForm" novalidate>
+  <div class="grid cols-2">
+    <div class="row">
+      <label for="name">Navn</label>
+      <input id="name" name="name" type="text" placeholder="Fullt navn" required />
+    </div>
+    <div class="row">
+      <label for="phone">Telefonnummer</label>
+      <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+47 47 87 87 69" required />
+    </div>
+
+    <div class="row">
+      <label for="from">Fra‑adresse</label>
+      <input id="from" name="from" type="text" placeholder="Gate, nr, postnr og sted" required />
+    </div>
+    <div class="row">
+      <label for="to">Til‑adresse</label>
+      <input id="to" name="to" type="text" placeholder="Gate, nr, postnr og sted" required />
+    </div>
+
+    <div class="row">
+      <label for="date">Ønsket dato</label>
+      <input id="date" name="date" type="date" required />
+    </div>
+    <div class="row">
+      <label for="time">Ønsket klokkeslett (valgfritt)</label>
+      <input id="time" name="time" type="time" />
+    </div>
+
+    <div class="row">
+      <label for="elevator">Heis?</label>
+      <select id="elevator" name="elevator" required>
+        <option value="" disabled selected>Velg</option>
+        <option>Ja</option>
+        <option>Nei</option>
+        <option>Delvis (kun i én av byggene)</option>
+      </select>
+    </div>
+    <div class="row">
+      <label for="floor">Etasje (høyeste etasje)</label>
+      <input id="floor" name="floor" type="number" min="0" step="1" placeholder="f.eks. 4" />
+    </div>
+
+    <div class="row">
+      <label for="photos">Last opp bilder (valgfritt)</label>
+      <input id="photos" name="photos" type="file" accept="image/*" multiple />
+      <div id="preview" class="preview" aria-live="polite"></div>
+      <div class="hint">Bilder av møbler/rom gjør prisen mer nøyaktig.</div>
+    </div>
+    <div class="row">
+      <label for="boxes">Antall esker (ca.)</label>
+      <input id="boxes" name="boxes" type="number" min="0" step="1" placeholder="f.eks. 15" />
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:10px">
+    <label for="desc">Kort beskrivelse</label>
+    <textarea id="desc" name="description" placeholder="Etasjer, heis, mengde, spesielle ting osv." required></textarea>
+  </div>
+
+  <div class="row">
+    <label><input type="checkbox" id="consent" required /> Jeg samtykker til at Habibi Express kan kontakte meg om denne bestillingen.</label>
+  </div>
+
+  <div class="actions">
+    <button type="submit">Send bestilling</button>
+    <a class="ghost" href="#" id="referralBtn" role="button">Hjelp noen å flytte – få 1000 kr</a>
+  </div>
+
+  <div class="footer">
+    Eller kontakt oss: <strong>HabibiExpressBergen@gmail.com</strong> · <strong>+47 47 87 87 69</strong>
+    <div class="brand">Slogan: <b>Flytting uten stress</b> · العربية: <b>تعال إلى دبي</b></div>
+  </div>
+</form>
+
+  </div>  <script>
+    // Preview selected photos
+    const photos = document.getElementById('photos');
+    const preview = document.getElementById('preview');
+    photos?.addEventListener('change', () => {
+      preview.innerHTML = '';
+      [...photos.files].slice(0,8).forEach(file => {
+        const img = document.createElement('img');
+        img.alt = file.name;
+        img.src = URL.createObjectURL(file);
+        preview.appendChild(img);
+      });
+    });
+
+    // Simple client-side handler – replace with your backend / email service
+    const form = document.getElementById('bookingForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if(!form.reportValidity()) return;
+
+      // If you have Formspree/EmailJS/backend, send here.
+      // Example: await fetch('YOUR_ENDPOINT', { method:'POST', body:new FormData(form) });
+
+      alert('Takk! Bestillingen din er sendt. Vi kontakter deg så snart som mulig.');
+      form.reset();
+      preview.innerHTML = '';
+    });
+
+    // Referral button – link til eget skjema når klart
+    document.getElementById('referralBtn').addEventListener('click', (e)=>{
+      e.preventDefault();
+      // Sett lenken når du har egen side, f.eks. 
+      // window.location.href = '/hjelp-noen-a-flytte.html';
+      alert('Eget skjema for «Hjelp noen å flytte – få 1000 kr» kommer snart.');
+    });
+  </script></body>
+</html>
